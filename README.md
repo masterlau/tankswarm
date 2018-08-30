@@ -28,8 +28,9 @@ TANKSWARM consists of two Docker Service Stacks that are littered over a Docker 
   <li><b>Network</b>: Ensure your nodes are on the same subnet</li>
   <li><b>Ports</b>: Open the following ports:
      <ul>
-       <li></li>
-       <li></li>
+       <li>TCP port 2377 for cluster management communications</li>
+       <li>TCP and UDP port 7946 for communication among nodes</li>
+       <li>UDP port 4789 for overlay network traffic</li>
     </ul>
   </li>
 </ol>
