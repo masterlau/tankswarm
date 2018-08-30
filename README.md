@@ -4,10 +4,10 @@ TANKSWARM is a complete platform for conducting and analyzing load tests on web 
 
 <h1>Tools & Features</h1>
 <ul>
-  <li>Docker Swarm - Easy Setup</li>
+  <li>Docker Swarm - Scalable & Robust</li>
   <li>Phantom - Fast Web Client</li>
   <li>Yandex Tank - Accurate Load Scheduler</li>
-  <li>Elastic Search - Scalable Data Collection</li>
+  <li>Elastic Search - Elastic, Redundant Data Storage & Retrieval</li>
   <li>Grafana - Beautiful & Immediate Results Analysis</li> 
 </ul>
 
