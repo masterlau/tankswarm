@@ -20,4 +20,14 @@ TANKSWARM consists of two Docker Service Stacks that are littered over a Docker 
 <ol>
 <img src="http://github.com/masterlau/tankswarm/blob/architecture.jpg"/>
 
-
+<h1>Setup & Configuration</h1>
+<h2>Docker Swarm Setup</h2>
+<ol>
+  <li><b>Compute Instances</b>: You can use VM's or Bare Metal Machines to create your Docker Swarm</li>
+  <li><b>Network</b>: Ensure your nodes are on the same subnet</li>
+  <li><b>Ports</b>: Open the following ports:
+     <ul>
+       <li></li>
+       <li></li>
+    </ul>
+</ol>
