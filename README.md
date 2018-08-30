@@ -34,7 +34,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     </ul>
   </li>
   <li><b>Operating System</b>: Ubuntu Xenial (16.04)</li>
-  <li><b>Install Docker (CE) to Nodes</b>
+  <li><b>Install Docker (CE) to Nodes <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank">(Docker Website)</a></b>
       <ul>
         <li>sudo apt-get update</li>
         <li>sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</li>
@@ -42,7 +42,6 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
         <li>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</li>
         <li>sudo apt-get update</li>
         <li>sudo apt-get install docker-ce</li>
-        <li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank">Docker Website for More Details</a></li>
       </ul>
   </li>
   <li><b>Initialise Docker Swarm on Single Node</b>
