@@ -11,3 +11,6 @@ TANKSWARM is a complete platform for conducting and analyzing load tests on web 
   <li>Grafana - Beautiful & Immediate Results Analysis</li> 
 </ul>
 
+<img src="http://github.com/masterlau/tankswarm/blob/architecture.jpg"/>
+
+
