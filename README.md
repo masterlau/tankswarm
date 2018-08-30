@@ -34,7 +34,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     </ul>
   </li>
   <li><b>Operating System</b>: Ubuntu Xenial (16.04)</li>
-  <li><b>Install Docker (CE) to Nodes (<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank">Docker Website</a></b>
+  <li><b>Install Docker (CE) to Nodes</b> (<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank">Docker Website</a>)
       <ul>
         <li>sudo apt-get update</li>
         <li>sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</li>
