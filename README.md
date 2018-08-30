@@ -33,4 +33,10 @@ TANKSWARM consists of two Docker Service Stacks that are littered over a Docker 
        <li>UDP port 4789 for overlay network traffic</li>
     </ul>
   </li>
+  <li><b>Operating System</b>: Ubuntu Xenial (16.04)</li>
+  <li><b>Install Docker</b>
+      <ol>
+        <li></li>
+    </ol>
+  </li>
 </ol>
