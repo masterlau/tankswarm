@@ -19,10 +19,6 @@ TANKSWARM consists of two Docker Service Stacks that are littered over a Docker 
   <li><b>Tank:</b> consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.</b></li>
 <ol>
 
-<br/>
-<img src="http://github.com/masterlau/tankswarm/blob/architecture.jpg"/>
-<br/>
-
 <h1>Setup & Configuration</h1>
 <h2>Docker Swarm Setup</h2>
 <ol>
