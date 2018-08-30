@@ -1,8 +1,5 @@
-# tankswarm
-Load Testing Platform for Public Cloud Deployment
-
-<h1>Overview</h1>
-TankSwarm is a complete platform for conducting and analyzing load tests on web services and apps.
+<h1>You found the TANKSWARM</h1>
+TANKSWARM is a complete platform for conducting and analyzing load tests on web services and apps.
 
 <h1>Tools & Features</h1>
 <ul>
@@ -12,3 +9,4 @@ TankSwarm is a complete platform for conducting and analyzing load tests on web 
   <li>Elastic Search - Scalable Data Collection</li>
   <li>Grafana - Beautiful & Immediate Results Analysis</li> 
 </ul>
+
