@@ -32,7 +32,8 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 4. **Operating System**: Ubuntu Xenial (16.04)
 5. **Install Docker (CE) to Nodes** [Docker Website](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     * Update Ubuntu
-      > $ sudo apt-get update
+
+```$ sudo apt-get update```
     
     * Install dependant packages
       > $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
@@ -69,11 +70,11 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 3. **Check Connected**
 
     > $ docker node ls <br/><br/>
-    > ID                         HOSTNAME               STATUS  AVAILABILITY  MANAGER  STATUS
-    > 1bcef6utixb0l0ca7gxuivsj0  Docker-Swarm-Worker-1  Ready   Active
-    > 38ciaotwjuritcdtn9npbnkuz  Docker-Swarm-Worker-2  Ready   Active
-    > 4sdag234kjhvishj29hajsnjn  Docker-Swarm-Worker-3  Ready   Active
-    > e216jshn25ckzbvmwlnh5jr3g* Docker-Swarm-Manager   Ready   Active        Leader
+    > ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HOSTNAME               STATUS  AVAILABILITY  MANAGER  STATUS<br/>
+    > 1bcef6utixb0l0ca7gxuivsj0  Docker-Swarm-Worker-1  Ready   Active<br/>
+    > 38ciaotwjuritcdtn9npbnkuz  Docker-Swarm-Worker-2  Ready   Active<br/>
+    > 4sdag234kjhvishj29hajsnjn  Docker-Swarm-Worker-3  Ready   Active<br/>
+    > e216jshn25ckzbvmwlnh5jr3g* Docker-Swarm-Manager   Ready   Active        Leader</br>
 
 ## Clone TankSwarm Repo to Docker-Swarm-Manager
 1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
