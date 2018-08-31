@@ -106,6 +106,6 @@ Ensure you are on the Swarm Manager and in the directory where docker-compose-ap
     
 | ID | NAME | MODE | REPLICAS | IMAGE | PORTS |
 | -- | ---- | ---- | -------- | ----- | ----- |
-| j71rvblg8e5s | app_elk | replicated	1/1 | sebp/elk:latest | \*:5044->5044/tcp, \*:5601->5601/tcp, \*:9200->9200/tcp, \*:9300->9300/tcp | 
-| lhs3g5zfvlnf | app_grafana | replicated	1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
-| i0ac4jtl6h00 | app_nginx | replicated	1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
+| j71rvblg8e5s | app_elk | replicated	| 1/1 | sebp/elk:latest | \*:5044->5044/tcp, \*:5601->5601/tcp, \*:9200->9200/tcp, \*:9300->9300/tcp | 
+| lhs3g5zfvlnf | app_grafana | replicated	| 1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
+| i0ac4jtl6h00 | app_nginx | replicated	| 1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
