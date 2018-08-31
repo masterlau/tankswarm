@@ -45,10 +45,12 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
       </ul>
   </li>
  </ol>
- <h2>Configure Docker Swarm</h2> 
-  <li><b>Create Docker Swarm Manager</b>
-    <ul>
-      <li> >docker swarm init</li>
-    </ul>
-  </li>
-</ol>
+<h2>Configure Docker Swarm</h2> 
+  <ol>
+    <li><b>Create Docker Swarm Manager</b></li>
+```javascript
+function test() {
+ console.log("look ma’, no spaces");
+}
+```
+ </ol>
