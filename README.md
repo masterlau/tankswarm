@@ -52,6 +52,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ## Configure Docker Swarm
 1. **Initiliase Docker Swarm Manager**
 > $ docker swarm init --advertise-addr 192.168.0.1
+
 > Swarm initialized: current node (bvz81updecsj6wjz393c09vti) is now a manager.
 
 2. **Connect Work Nodes to Docker Swarm**
