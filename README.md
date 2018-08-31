@@ -83,10 +83,6 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
     > $ git clone https://github.com/masterlau/tankswarm.git
 
-## Configure Docker Service Definitions
-1. **App Service**: edit docker-compose-app.yml
-2. **Tank Service**:  edit docker-compose-app.yml
-
 ## Create Docker Named Volumes
 1. Create Docker local named file repoistories on Swarm Manager node.
 
@@ -94,10 +90,9 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ docker volume create tank-vol
 
 ## Create Docker Overlay Network
-1. Create a docker overlay network so all nodes in the Docker Swarm can communicate. 
+1. Create a docker overlay network so all nodes in the Docker Swarm can communicate.
 
-    > $ docker network create zarzone
-## Create
-## Deploy Docker Service Stacks
-1. App
-2. Tank
+    > $ docker network create warzone
+
+# Usage
+##Deploy Docker App Service Stack
