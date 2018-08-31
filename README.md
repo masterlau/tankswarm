@@ -22,7 +22,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/architecture.png"/>
 
 <h1>Setup & Configuration</h1>
-<h2>Docker Swarm Setup</h2>
+<h2>Install Docker</h2>
 <ol>
   <li><b>Compute Instances</b>: You can use VM's or Bare Metal Machines to create your Docker Swarm</li>
   <li><b>Network</b>: Ensure your nodes are on the same subnet</li>
@@ -36,17 +36,19 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
   <li><b>Operating System</b>: Ubuntu Xenial (16.04)</li>
   <li><b>Install Docker (CE) to Nodes</b> (<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank">Docker Website</a>)
       <ul>
-        <li>sudo apt-get update</li>
-        <li>sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</li>
-        <li>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</li>
-        <li>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</li>
-        <li>sudo apt-get update</li>
-        <li>sudo apt-get install docker-ce</li>
+        <li> >sudo apt-get update</li>
+        <li> >sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</li>
+        <li> >curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</li>
+        <li> >sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</li>
+        <li> >sudo apt-get update</li>
+        <li> >sudo apt-get install docker-ce</li>
       </ul>
   </li>
-  <li><b>Initialise Docker Swarm on Single Node</b>
+ </ol>
+ <h2>Configure Docker Swarm</h2> 
+  <li><b>Create Docker Swarm Manager</b>
     <ul>
-      <li></li>
+      <li> >docker swarm init</li>
     </ul>
   </li>
 </ol>
