@@ -51,7 +51,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     - Install Docker 
     > $ sudo apt-get install docker-ce
     
-## Configure Docker Swarm
+### Configure Docker Swarm
 1. **Initiliase Docker Swarm Manager**
 
     > $ docker swarm init --advertise-addr 192.168.0.1<br/>
@@ -79,21 +79,32 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     | 4sdag234kjhvishj29hajsnjn | Docker-Swarm-Worker-3 | Ready | Active | | |
     | e216jshn25ckzbvmwlnh5jr3g* | Docker-Swarm-Manager  | Ready | Active | Leader | |
 
-## Clone TankSwarm Repo to Docker-Swarm-Manager
+### Clone TankSwarm Repo to Docker-Swarm-Manager
 1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
 
     > $ git clone https://github.com/masterlau/tankswarm.git
 
-## Create Docker Named Volumes
+### Create Docker Named Volumes
 1. Create Docker local named file repoistories on Swarm Manager node.
 
     > $ docker volume create app-vol      
     > $ docker volume create tank-vol
 
-## Create Docker Overlay Network
+### Create Docker Overlay Network
 1. Create a docker overlay network so all nodes in the Docker Swarm can communicate.
 
     > $ docker network create warzone
 
-# Usage
-## Deploy Docker App Service Stack
+### Deploy the App ServicesStack
+1. Deploy App Stack: Ensure you are on the Swarm Manager and in the directory where docker-compose-app.yml resides.
+
+    > $ docker deploy stack -c docker-compose-app.yml app
+
+2. Ensure the App Stack is running:
+
+    > $ docker service ls
+    
+ID						NAME				MODE				REPLICAS	IMAGE										PORTS
+j71rvblg8e5s	app_elk			replicated	1/1				sebp/elk:latest					*:5044->5044/tcp, *:5601->5601/tcp, *:9200->9200/tcp, *:9300->9300/tcp
+lhs3g5zfvlnf	app_grafana	replicated	1/1				grafana/grafana:latest	*:3000->3000/tcp
+i0ac4jtl6h00	app_nginx		replicated	1/1				nginx:latest						*:80->80/tcp, *:443->443/tcp
