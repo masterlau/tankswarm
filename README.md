@@ -1,8 +1,9 @@
 ### You just found..
 # TANKSWARM
-TANKSWARM is a complete platform for conducting and analyzing load tests on web services and apps.
+TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services and Apps.
 
 # Tools & Features
+  - Nginx Web App - Easy, Single User Tank Loading, Firing & Results Analysis
   - Docker Swarm - Scalable & Robust Contair Platform
   - Phantom - Fast Web Client
   - Yandex Tank - Accurate Load Scheduler
