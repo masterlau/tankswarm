@@ -22,8 +22,8 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
     - Docker-Swarm-Manager
     - Docker-Swarm-Worker1
-   - Docker-Swarm-Worker2
-   - Docker-Swarm-Worker3
+    - Docker-Swarm-Worker2
+    - Docker-Swarm-Worker3
 2. **Network**: Ensure your nodes are on the same subnet
 3. **Ports**: Open the following ports:
     - TCP port 2377 for cluster management communications
@@ -70,11 +70,13 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 3. **Check Connected**
 
     > $ docker node ls <br/><br/>
-    > ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HOSTNAME               STATUS  AVAILABILITY  MANAGER  STATUS<br/>
-    > 1bcef6utixb0l0ca7gxuivsj0  Docker-Swarm-Worker-1  Ready   Active<br/>
-    > 38ciaotwjuritcdtn9npbnkuz  Docker-Swarm-Worker-2  Ready   Active<br/>
-    > 4sdag234kjhvishj29hajsnjn  Docker-Swarm-Worker-3  Ready   Active<br/>
-    > e216jshn25ckzbvmwlnh5jr3g* Docker-Swarm-Manager   Ready   Active        Leader</br>
+
+    | ID | HOSTNAME | STATUS | AVAILABILITY | MANAGER | STATUS |
+    | -- | -------- | ------ | ------------ | ------- | ------ |
+    | 1bcef6utixb0l0ca7gxuivsj0 | Docker-Swarm-Worker-1 | Ready | Active | | |
+    | 38ciaotwjuritcdtn9npbnkuz | Docker-Swarm-Worker-2 | Ready | Active | | |
+    | 4sdag234kjhvishj29hajsnjn | Docker-Swarm-Worker-3 | Ready | Active | | |
+    | e216jshn25ckzbvmwlnh5jr3g* | Docker-Swarm-Manager  | Ready | Active | Leader | |
 
 ## Clone TankSwarm Repo to Docker-Swarm-Manager
 1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
