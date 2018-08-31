@@ -95,4 +95,4 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ docker network create warzone
 
 # Usage
-##Deploy Docker App Service Stack
+## Deploy Docker App Service Stack
