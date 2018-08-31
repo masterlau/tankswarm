@@ -65,12 +65,12 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
     > $ docker swarm join \ <br/>
     > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
-    > 172.17.0.2:2377<br/><br/>
+    > 172.17.0.2:2377<br/>
 
 3. **Check Connected**
 
-    > $ docker node ls <br/><br/>
-
+    > $ docker node ls
+    <br/>
     | ID | HOSTNAME | STATUS | AVAILABILITY | MANAGER | STATUS |
     | -- | -------- | ------ | ------------ | ------- | ------ |
     | 1bcef6utixb0l0ca7gxuivsj0 | Docker-Swarm-Worker-1 | Ready | Active | | |
