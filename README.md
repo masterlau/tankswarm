@@ -1,23 +1,20 @@
-<h3>You just found..</h3>
-<h1>TANKSWARM</h1>
+### You just found..
+# TANKSWARM
 TANKSWARM is a complete platform for conducting and analyzing load tests on web services and apps.
 
-<h1>Tools & Features</h1>
-<ul>
-  <li>Docker Swarm - Scalable & Robust Contair Platform</li>
-  <li>Phantom - Fast Web Client</li>
-  <li>Yandex Tank - Accurate Load Scheduler</li>
-  <li>Elastic Search - Elastic, Redundant Data Storage & Retrieval</li>
-  <li>Grafana - Beautiful & Immediate Results Analysis</li> 
-</ul>
+# Tools & Features
+* Docker Swarm - Scalable & Robust Contair Platform
+* Phantom - Fast Web Client
+* Yandex Tank - Accurate Load Scheduler
+* Elastic Search - Elastic, Redundant Data Storage & Retrieval
+* Grafana - Beautiful & Immediate Results Analysis
 
-<h1>Architecture</h1>
+
+# Architecture
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
-<br/><br/>
-<ol>
-  <li><b>App:</b> consists of 3 docker containers - NGINX, Elastic Search and Grafana.  This service stack controls the browser based load testing console, the  Elastic Search Time Series database to collect test data and Grafana dashboards to chart test results.</li>
-  <li><b>Tank:</b> consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.</li>
-</ol>
+
+1. **App:** consists of 3 docker containers - NGINX, Elastic Search and Grafana.  This service stack controls the browser based load testing console, the  Elastic Search Time Series database to collect test data and Grafana dashboards to chart test results.
+2. **Tank:** consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.
 
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/architecture.png"/>
 
@@ -48,9 +45,9 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 <h2>Configure Docker Swarm</h2> 
   <ol>
     <li><b>Create Docker Swarm Manager</b></li>
-```javascript
-function test() {
- console.log("look ma’, no spaces");
-}
+    <li> ```function test() {
+  console.log("look ma’, no spaces");
+  }
 ```
+  </li>
  </ol>
