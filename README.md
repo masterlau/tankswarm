@@ -9,7 +9,6 @@ TANKSWARM is a complete platform for conducting and analyzing load tests on web 
 * Elastic Search - Elastic, Redundant Data Storage & Retrieval
 * Grafana - Beautiful & Immediate Results Analysis
 
-
 # Architecture
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
 
@@ -20,8 +19,11 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 # Setup & Configuration
 ## Install Docker
-
-1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm
+1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
+   * Docker-Swarm-Manager
+   * Docker-Swarm-Worker1
+   * Docker-Swarm-Worker2
+   * Docker-Swarm-Worker3
 2. **Network**: Ensure your nodes are on the same subnet
 3. **Ports**: Open the following ports:
     * TCP port 2377 for cluster management communications
@@ -52,21 +54,26 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 2. **Connect Work Nodes to Docker Swarm**
 3. **Check Connected**
 
+## Clone TankSwarm Repo to Docker-Swarm-Manager
+1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
+    > $ git clone https://github.com/masterlau/tankstash/
+
 ## Configure Docker Service Definitions
-1. **App**
+1. Copy 
+1. **App**: 
 2. **Tank**
 
-## Create Docker Volumes
-1. Create Docker local named file repoistories
+## Create Docker Named Volumes
+1. Create Docker local named file repoistories on Swarm Manager node.
 
     > $ docker volume create app-vol      
     > $ docker volume create tank-vol
 
-# Create Docker Networks
-1. Create the docker network for all services to share. 
+## Create Docker Overlay Network
+1. Create a docker overlay network so all nodes in the Docker Swarm can communicate. 
 
     > $ docker network create zarzone
-      
+## Create
 ## Deploy Docker Service Stacks
 1. App
 2. Tank
