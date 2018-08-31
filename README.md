@@ -48,4 +48,22 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
       > $ sudo apt-get install docker-ce
     
 ## Configure Docker Swarm
-1. **Create Docker Swarm Manager**
+1. **Initiliase Docker Swarm Manager**
+2. **Connect Work Nodes to Docker Swarm**
+3. **Check Connected**
+
+## Configure Docker Service Definitions
+1. App
+2. Tank
+
+## Create Docker Volumes
+    * Create Docker local, named file repoistory
+      > $ docker volume create app-vol
+      > $ docker volume create tank-vol
+# Create Docker Networks
+    * Create the docker network for all services to share.
+      > $ docker network create zarzone
+      
+## Deploy Docker Service Stacks
+1. App
+2. Tank
