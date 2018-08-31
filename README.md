@@ -29,10 +29,11 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     * UDP port 4789 for overlay network traffic
 4. **Operating System**: Ubuntu Xenial (16.04)
 5. **Install Docker (CE) to Nodes** [Docker Website](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+    * Update Ubuntu
     > sudo apt-get update
-    
+    * Install dependant packages
     > sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-    
+    * Get Docker GPG Key
     > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
     > sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
