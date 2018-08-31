@@ -52,7 +52,9 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ sudo apt-get install docker-ce
     
 ### Configure Docker Swarm
+
 1. **Initiliase Docker Swarm Manager**
+Ensure you are on the Docker Swarm Manager Node.
 
     > $ docker swarm init --advertise-addr 192.168.0.1<br/>
     > Swarm initialized: current node (bvz81updecsj6wjz393c09vti) is now a manager<br/><br/>
@@ -63,12 +65,14 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     >To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 
 2. **Join Docker Worker Nodes to Swarm**
+Login to each of the Docker Swarm Worker Nodes and run the following command.
 
     > $ docker swarm join \ <br/>
     > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
     > 172.17.0.2:2377<br/>
 
 3. **List Registered Docker Swarm Nodes**
+On the Docker Swarm Manager, run this command to ensure :
 
     > $ docker node ls
  
@@ -80,13 +84,13 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     | e216jshn25ckzbvmwlnh5jr3g* | Docker-Swarm-Manager  | Ready | Active | Leader | |
 
 ### Create Docker Named Volumes
-1. Create Docker local named file repoistories on Swarm Manager node.
+Create Docker local named file repoistories on Swarm Manager node.
 
     > $ docker volume create app-vol      
     > $ docker volume create tank-vol
 
 ### Create Docker Overlay Network
-1. Create a docker overlay network so all nodes in the Docker Swarm can communicate.
+Create a docker overlay network so all nodes in the Docker Swarm can communicate.
 
     > $ docker network create warzone
 
