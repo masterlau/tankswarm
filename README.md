@@ -20,10 +20,10 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 # Setup & Configuration
 ## Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
-    - Docker-Swarm-Manager
-    - Docker-Swarm-Worker1
-    - Docker-Swarm-Worker2
-    - Docker-Swarm-Worker3
+  - Docker-Swarm-Manager
+  - Docker-Swarm-Worker1
+  - Docker-Swarm-Worker2
+  - Docker-Swarm-Worker3
 2. **Network**: Ensure your nodes are on the same subnet
 3. **Ports**: Open the following ports:
     - TCP port 2377 for cluster management communications
