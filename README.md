@@ -70,7 +70,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 3. **Check Connected**
 
     > $ docker node ls
-    <br/>
+ 
     | ID | HOSTNAME | STATUS | AVAILABILITY | MANAGER | STATUS |
     | -- | -------- | ------ | ------------ | ------- | ------ |
     | 1bcef6utixb0l0ca7gxuivsj0 | Docker-Swarm-Worker-1 | Ready | Active | | |
