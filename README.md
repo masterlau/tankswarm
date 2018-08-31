@@ -79,11 +79,6 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     | 4sdag234kjhvishj29hajsnjn | Docker-Swarm-Worker-3 | Ready | Active | | |
     | e216jshn25ckzbvmwlnh5jr3g* | Docker-Swarm-Manager  | Ready | Active | Leader | |
 
-### Clone TankSwarm Repo to Docker-Swarm-Manager
-1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
-
-    > $ git clone https://github.com/masterlau/tankswarm.git
-
 ### Create Docker Named Volumes
 1. Create Docker local named file repoistories on Swarm Manager node.
 
@@ -96,15 +91,21 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ docker network create warzone
 
 ### Deploy the App ServicesStack
-1. Deploy App Stack: Ensure you are on the Swarm Manager and in the directory where docker-compose-app.yml resides.
+1. Clone the TANKSWARM Repo to your home directory on your Docker Swarm Maanager node.
+
+    > $ git clone https://github.com/masterlau/tankswarm.git
+
+2. Deploy App Stack.
+Ensure you are on the Swarm Manager and in the directory where docker-compose-app.yml resides.
 
     > $ docker deploy stack -c docker-compose-app.yml app
 
-2. Ensure the App Stack is running:
+3. Ensure the App Stack is running:
 
     > $ docker service ls
     
-ID						NAME				MODE				REPLICAS	IMAGE										PORTS
-j71rvblg8e5s	app_elk			replicated	1/1				sebp/elk:latest					*:5044->5044/tcp, *:5601->5601/tcp, *:9200->9200/tcp, *:9300->9300/tcp
-lhs3g5zfvlnf	app_grafana	replicated	1/1				grafana/grafana:latest	*:3000->3000/tcp
-i0ac4jtl6h00	app_nginx		replicated	1/1				nginx:latest						*:80->80/tcp, *:443->443/tcp
+| ID | NAME | MODE | REPLICAS | IMAGE | PORTS |
+| -- | ---- | ---- | -------- | ----- | ----- |
+| j71rvblg8e5s | app_elk | replicated	1/1 | sebp/elk:latest | \*:5044->5044/tcp, \*:5601->5601/tcp, \*:9200->9200/tcp, \*:9300->9300/tcp | 
+| lhs3g5zfvlnf | app_grafana | replicated	1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
+| i0ac4jtl6h00 | app_nginx | replicated	1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
