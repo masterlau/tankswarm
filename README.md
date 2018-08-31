@@ -19,7 +19,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture.png)
 
 # Setup & Configuration
-## Install Docker
+### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
     - Docker-Swarm-Manager
     - Docker-Swarm-Worker1
