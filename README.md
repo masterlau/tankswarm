@@ -57,13 +57,23 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > To add a worker to this swarm, run the following command:<br/><br/>
     > $ docker swarm join \ <br/>
     > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
-    > 172.17.0.2:2377
+    > 172.17.0.2:2377<br/><br/>
+    >To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 
-To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+2. **Join Docker Worker Nodes to Swarm**
 
-    
-2. **Connect Work Nodes to Docker Swarm**
+    > $ docker swarm join \ <br/>
+    > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
+    > 172.17.0.2:2377<br/><br/>
+
 3. **Check Connected**
+
+    > $ docker node ls <br/><br/>
+    > ID                           HOSTNAME                STATUS  AVAILABILITY  MANAGER STATUS<br/>
+    > 1bcef6utixb0l0ca7gxuivsj0    Docker-Swarm-Worker-1   Ready   Active<br/>
+    > 38ciaotwjuritcdtn9npbnkuz    Docker-Swarm-Worker-2   Ready   Active<br/>
+    > 4sdag234kjhvishj29hajsnjn    Docker-Swarm-Worker-3   Ready   Active<br/>
+    > e216jshn25ckzbvmwlnh5jr3g *  Docker-Swarm-Manager    Ready   Active        Leader
 
 ## Clone TankSwarm Repo to Docker-Swarm-Manager
 1. **Clone**: Clone the TANKSWARM Repo to your home directory on the host that will be your Docker Swarm Maanager.
