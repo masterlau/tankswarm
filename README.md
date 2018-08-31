@@ -30,20 +30,22 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 4. **Operating System**: Ubuntu Xenial (16.04)
 5. **Install Docker (CE) to Nodes** [Docker Website](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     * Update Ubuntu
-      > sudo apt-get update
+      > $ sudo apt-get update
     
     * Install dependant packages
-      > sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+      > $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     
     * Get Docker GPG Key
-      > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      > $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     
     * Add Docker Repo
-      > sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+      > $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     
-    > sudo apt-get update
-    
-    > sudo apt-get install docker-ce
+    * Re-Update Repo List
+      > $ sudo apt-get update
+
+    * Install Docker
+      > $ sudo apt-get install docker-ce
     
 ## Configure Docker Swarm
 1. **Create Docker Swarm Manager**
