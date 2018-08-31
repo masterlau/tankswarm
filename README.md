@@ -3,11 +3,11 @@
 TANKSWARM is a complete platform for conducting and analyzing load tests on web services and apps.
 
 # Tools & Features
-  * Docker Swarm - Scalable & Robust Contair Platform
-  * Phantom - Fast Web Client
-  * Yandex Tank - Accurate Load Scheduler
-  * Elastic Search - Elastic, Redundant Data Storage & Retrieval
-  * Grafana - Beautiful & Immediate Results Analysis
+   * Docker Swarm - Scalable & Robust Contair Platform
+   * Phantom - Fast Web Client
+   * Yandex Tank - Accurate Load Scheduler
+   * Elastic Search - Elastic, Redundant Data Storage & Retrieval
+   * Grafana - Beautiful & Immediate Results Analysis
 
 # Architecture
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
@@ -22,30 +22,35 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 # Setup & Configuration
 ## Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
-  * Docker-Swarm-Manager
-  * Docker-Swarm-Worker1
-  * Docker-Swarm-Worker2
-  * Docker-Swarm-Worker3
+    * Docker-Swarm-Manager
+    * Docker-Swarm-Worker1
+    * Docker-Swarm-Worker2
+    * Docker-Swarm-Worker3
 2. **Network**: Ensure your nodes are on the same subnet
 3. **Ports**: Open the following ports:
-  * TCP port 2377 for cluster management communications
-  * TCP and UDP port 7946 for communication among nodes
-  * UDP port 4789 for overlay network traffic
+    * TCP port 2377 for cluster management communications
+    * TCP and UDP port 7946 for communication among nodes
+    * UDP port 4789 for overlay network traffic
 4. **Operating System**: Ubuntu Xenial (16.04)
 5. **Install Docker (CE) to Nodes** [Docker Website](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-  * Update Ubuntu
-    $ sudo apt-get update
 
-* Install dependant packages
-> $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-* Get Docker GPG Key
-> $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-* Add Docker Repo
-> $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-* Re-Update Repo List
-> $ sudo apt-get update
-* Install Docker
-> $ sudo apt-get install docker-ce
+    * Update Ubuntu
+    > $ sudo apt-get update
+    
+    * Install dependant packages
+    > $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+    * Get Docker GPG Key
+    > $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    * Add Docker Repo
+    > $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    * Re-Update Repo List
+    > $ sudo apt-get update
+
+    * Install Docker 
+    > $ sudo apt-get install docker-ce
     
 ## Configure Docker Swarm
 1. **Initiliase Docker Swarm Manager**
