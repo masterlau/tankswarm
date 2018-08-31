@@ -91,16 +91,17 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ docker network create warzone
 
 ### Deploy the App ServicesStack
-1. Clone the TANKSWARM Repo to your home directory on your Docker Swarm Maanager node.
+Ensure you are on the Docker Swarm Manager Node.
+
+1. Clone the TANKSWARM Repo to your home directory.
 
     > $ git clone https://github.com/masterlau/tankswarm.git
 
-2. Deploy App Stack.
-Ensure you are on the Swarm Manager and in the directory where docker-compose-app.yml resides.
+2. Switch into the repo directory and deploy App Stack.
 
     > $ docker deploy stack -c docker-compose-app.yml app
 
-3. Ensure the App Stack is running:
+3. Check the App Stack is running:
 
     > $ docker service ls
     
