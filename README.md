@@ -2,7 +2,7 @@
 # TANKSWARM
 TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services and Apps.
 
-# Tools & Features
+### Tools & Features
   - Nginx Web App - Easy, Single User Tank Loading, Firing & Results Analysis
   - Docker Swarm - Scalable & Robust Contair Platform
   - Phantom - Fast Web Client
@@ -10,7 +10,7 @@ TANKSWARM is a complete platform for conducting and analyzing load tests on Web 
   - Elastic Search - Elastic, Redundant Data Storage & Retrieval
   - Grafana - Beautiful & Immediate Results Analysis
 
-# Architecture
+### Architecture
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
 
   1. **App**: Consists of 3 docker containers - NGINX, Elastic Search and Grafana.  This service stack controls the browser based load testing console, the  Elastic Search Time Series database to collect test data and Grafana dashboards to chart test results.
