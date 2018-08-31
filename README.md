@@ -55,7 +55,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > $ docker swarm init --advertise-addr 192.168.0.1<br/>
     > Swarm initialized: current node (bvz81updecsj6wjz393c09vti) is now a manager<br/><br/>
     > To add a worker to this swarm, run the following command:<br/><br/>
-    > docker swarm join \ <br/>
+    > $ docker swarm join \ <br/>
     > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
     > 172.17.0.2:2377
 
