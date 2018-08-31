@@ -53,15 +53,13 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 3. **Check Connected**
 
 ## Configure Docker Service Definitions
-1. App
-2. Tank
+1. **App**
+2. **Tank**
 
 ## Create Docker Volumes
-    * Create Docker local, named file repoistory
-    
-      > $ docker volume create app-vol
-      
-      > $ docker volume create tank-vol
+Create Docker local, named file repoistory
+> $ docker volume create app-vol      
+> $ docker volume create tank-vol
 # Create Docker Networks
     * Create the docker network for all services to share.
       > $ docker network create zarzone
