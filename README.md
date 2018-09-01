@@ -118,19 +118,19 @@ On the Docker Swarm Manager Node.
 
 # Usage
 ### Start Web App
-1. Goto your favorite web browser and go to the following address:
+1. Goto your favorite web browser and go to the following address
 
     > ```http://<ip-of-docker-swarm-manager>```
     
-2. Login with the following credentials.
+2. Login with the following credentials
 
-    > username: admin
+    > username: admin<br/>
     > password: admin
    
 3. Fill in the following fields.
 
-    > GET/POST: GET
-    > SSL/HTTP: http
-    > Host: www.google.com
-    > URL: /
-    > RPS: 20  *Requests per second*
+    > GET/POST: GET<br/>
+    > SSL/HTTP: http<br/>
+    > Host: www.google.com<br/>
+    > URL: /<br/>
+    > RPS: 20  *Requests per second*<br/>
