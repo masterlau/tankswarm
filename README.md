@@ -95,7 +95,7 @@ Create a docker overlay network so all nodes in the Docker Swarm can communicate
     > $ docker network create warzone
 
 ### Deploy the App ServicesStack
-Ensure you are on the Docker Swarm Manager Node.
+On the Docker Swarm Manager Node.
 
 1. Clone the TANKSWARM Repo to your home directory.
 
