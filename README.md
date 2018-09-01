@@ -120,7 +120,7 @@ On the Docker Swarm Manager Node.
 ### Start Web App
 1. Goto your favorite web browser and go to the following address:
 
-    > http://<ip-of-docker-swarm-manager>/
+    > ```http://<ip-of-docker-swarm-manager>```
     
 2. Login with the following credentials.
 
