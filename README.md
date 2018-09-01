@@ -114,3 +114,23 @@ On the Docker Swarm Manager Node.
 | j71rvblg8e5s | app_elk | replicated	| 1/1 | sebp/elk:latest | \*:5044->5044/tcp, \*:5601->5601/tcp, \*:9200->9200/tcp, \*:9300->9300/tcp | 
 | lhs3g5zfvlnf | app_grafana | replicated	| 1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
 | i0ac4jtl6h00 | app_nginx | replicated	| 1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
+
+
+# Usage
+### Start Web App
+1. Goto your favorite web browser and go to the following address:
+
+    > http://<ip-of-docker-swarm-manager>/
+    
+2. Login with the following credentials.
+
+    > username: admin
+    > password: admin
+   
+3. Fill in the following fields.
+
+    > GET/POST: GET
+    > SSL/HTTP: http
+    > Host: www.google.com
+    > URL: /
+    > RPS: 20  *Requests per second*
