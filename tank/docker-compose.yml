@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  tank:
+    image: petertwliu/tankswarm:v8
+    networks:
+      - warzone
+    volumes:
+      - tank-vol:/var/loadtest/
+    deploy:
+      mode: global
+      restart_policy:
+        condition: none
+
+volumes:
+  tank-vol:
+    external:
+      name: tank-vol
+
+networks:
+  warzone:
+    external:
+      name: warzone

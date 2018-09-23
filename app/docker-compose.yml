@@ -1,0 +1,67 @@
+version: "3"
+
+services:
+
+  nginx:
+    image: petertwliu/nginx:v5
+    ports:
+      - 80:80
+    networks:
+      - warzone
+    volumes:
+      - app-vol:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 30s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints:
+          - node.role == manager
+
+  elk:
+    image: petertwliu/elk:v1
+    networks:
+      - warzone
+    ports:
+      - 5044:5044
+      - 5601:5601
+      - 9200:9200
+      - 9300:9300
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 30s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints:
+          - node.role == manager
+
+  grafana:
+    image: petertwliu/grafana:v5
+    networks:
+      - warzone
+    ports:
+      - 3000:3000
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 30s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints:
+          - node.role == manager
+
+volumes:
+  app-vol:
+    external:
+      name: app-vol
+
+networks:
+  warzone:
+    external:
+      name: warzone

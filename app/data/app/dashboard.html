@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ 	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="/css/style.css"> 
+	<link rel="stylesheet" href="/css/fontawesome/css/all.css">
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lobster|Quicksand" rel="stylesheet">
+
+	<title>TANKSWARM</title>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class='col-xl-1'></div>
+			<div class='col-lg-1'></div>
+			<div class="crl-md-1"></div>	
+			<div class="col-sm-1"></div>
+			<div class="col" style="text-align: center">
+
+				<br/>
+				<img src="/img/icon-tank.jpg" width=100/>
+				<h1>TANKSWARM</h1>
+                		Self-Service load testing platform.
+                		<br/><br/>
+
+                        	<div class="container-fluid" style='text-align:left'>
+					<div class="row">
+						<div class="col">
+							<!-- PHASE 1 -->
+                					<h2>Phase 1: Prepare Ammo</h2>
+                                        		HTTP Request Type
+							<br/>
+                                               		<select id='reqtype'>
+                                               		        <option value='get'>GET</option>
+                                               		        <option value='post'>POST</option>
+                                               		        <option value='option'>OPTION</option>
+                                               		        <option value='head'>HEAD</option>
+                                               		        <option value='range'>RANGE</option>
+                                               		</select>
+							<br/>
+							Security Protocol
+							<br/>
+							<select id='ssl'>
+                                                        	<option value='https'>HTTPS</option>
+                                                                <option value='http' selected>HTTP</option>
+                                                        </select>
+							<br/>
+                                                        Port
+							<br/>
+                                                        <input type='text' id='port' class='numeric' placeholder='eg. 8080'/>
+							<br/>
+							Host & Domain
+							<br/>
+							<input type='text' id='hostname' placeholder='eg. www.google.com'/>
+							<br/>
+                                                        URL & Query String
+							<br/>
+                                                        <input type='text' id='url' placeholder='eg. /imghp?hl=en&tab=wi'/>
+							<br/>
+							HTTP Headers
+                                                        <br/>
+                                                        <textarea id='headers' placeholder='eg.&#013;&#010;Authorization: Bearer AS23542654FB34669&#013;&#010;X-Token: ASFDFB2'></textarea>
+							<p id="pmsgbody">
+                                               			Message Body
+								<br/>
+                                                       		<textarea id='msgbody' placeholder='eg.&#013;&#010;{ "username": "admin", "password"; "admin" }'/></textarea>
+								<br/>
+							</p>
+							<button id="testFireBtn"><i class="fas fa-crosshairs fa-lg"></i> &nbsp;Test Fire</button>
+							<br/><br/>
+							<h2>Test Fire Terminal Output</h2>
+                					<div id='testfireoutput'><xmp></xmp></div>
+							<br/><br/>
+
+							<!-- PHASE 2 -->
+							<h2>Phase 2. Tank Settings</h2>
+							Identity Tag
+							<br/>
+							<input type='text' id='tag' placeholder='eg. LoginService'/>
+							<br/>
+							Attack Mode
+							<select id="ramp">
+                                				<option value='const' selected>Constant</option>
+                                				<option value='line'>Linear</option>
+                                				<option value='step'>Step</option>
+                        				</select>
+							<br/>
+                        				<p id="prps">Requests/Sec <input type='text' class='numeric' id='rps' placeholder='eg. 50'/></p>
+                        				<p id='pstartrps'>Starting RPS <input type='text' class='numeric' id='startrps' placeholder='eg. 1'/></p>
+                        				<p id='pendrps'>Ending RPS <input type='text' class='numeric' id='endrps' placeholder='eg. 5000'></p>
+                        				<p id='psteprps'>Step Rate RPS <input type='text' class='numeric' id='steprps' placeholder='eg. 500'/></p>
+                        				<p id='pduration'>Duration <input type='text' id='duration' placeholder='eg. 35s, 1m, 1h'/></p>
+							Number of Tanks
+							<br/>
+					                <select id='tanknum'>
+                                        			<option value'1'>1</option>
+                                        			<option value='2'>2</option>
+                                        			<option value='3'>3</option>
+                                       				<option value='4'>4</option>
+                                			</select>
+							<br/>
+							<br/>
+							<button id="tankControlBtn"><i class="fa fa-sync fa-spin"></i> &nbsp; Standby for Tank Status</button>
+							<br/>
+							<br/>
+							<h2>Battle Field Intelligence</h2>
+                        				<img id="grafanaRPS" src="/img/grafana-logo.png"/><br/>
+                        				<img id="grafanaResponse" src="/img/grafana-logo.png"/>
+							<br/>
+							<br/>
+							<center><a href="http://tankswarm.optusnet.com.au:3000" target="_blank"><i class="fas fa-external-link-alt"></i> Launch Grafana for Full Metrics</a>
+					   	</div>
+					</div>
+				</div>
+
+				<br/>
+                                <img src="/img/icon-tank.jpg" width=100/>
+                               	<p id="footer">TANKSWARM</p>
+				<br/><br/>
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-md-1"></div>
+			<div class="col-lg-1"></div>
+			<div class="col-xl-1"></div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

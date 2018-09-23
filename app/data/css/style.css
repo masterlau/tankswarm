@@ -1,0 +1,169 @@
+body,
+xmp {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 12pt;
+}
+
+xmp {
+	font-size: 10pt;
+}
+
+H1 {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 40pt;
+	font-weight: 800;
+}
+
+H2 {
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 16pt;
+        font-weight: 800;
+}
+
+p {
+	margin: 0;
+}
+
+#footer {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 14pt;
+}
+
+#working {
+	display: none;
+}
+
+#loginDiv 
+{
+	text-align: center;
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: 'Quicksand', sans-serif;
+	border-radius: 5px;
+	border: 0;
+	background-color: #dddddd;
+	padding: 10px 20px;
+	margin: 2px;
+}
+
+img {
+	border-radius: 5px;
+}
+
+#grafanaRPS {
+	margin-bottom: 5px;
+}
+
+#grafanaResponse,
+#grafanaRPS {
+	width: 100%;
+}
+
+select {
+	height: 42px;
+	width: 100%;
+}
+
+textarea,
+input {
+	width: 100%;
+}
+
+textarea {
+	height: 100px;
+}
+
+#startrps, #endrps, #steprps, #rps {
+        width: 100% !important;
+}
+
+#duration, 
+#tag,
+#port {
+	width: 100% !important;
+}
+
+#pstartrps, 
+#pendrps, 
+#psteprps, 
+#pmsgbody,
+#fireDiv {
+	display: none;
+}
+
+#loginFormUsername,
+#loginFormPassword {
+	width: 300px;
+}
+
+button {
+	background-color: #333333;
+	width: 100% !important;
+	color: #ffffff;
+	font-weight: 800;
+	font-size: 15pt;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #000000;
+}
+
+.greenBtn {
+	background-color: #59af6d !important;
+}
+
+.greenBtn:hover {
+	background-color: #2f8c44 !important;
+}
+
+.redBtn {
+        background-color: #dc3949 !important;
+}
+
+.redBtn:hover {
+        background-color: #bd2b39 !important;
+}
+
+
+#testfireoutput,
+#warzoneoutput {
+	width: 100%;
+	font-size: 8pt;
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+	display: inline-block;
+	height: 350px;
+	overflow-y: auto;
+	padding: 20px;
+	text-align: left;
+}
+
+#testfireoutput xmp,
+#warzoneoutput xmp {
+	white-space: pre-wrap;       /* Since CSS 2.1 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	word-break: break-all;
+}
+
+#warzoneoutput { 
+	display: none;
+}
+
+#loginFormSubmit {
+	width: 300px;
+}
+
+#loginFormSubmit:hover {
+	cursor: pointer;
+	background-color: #000000;
+	color: #fff;
+}

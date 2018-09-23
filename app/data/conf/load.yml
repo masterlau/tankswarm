@@ -1,0 +1,15 @@
+phantom:
+  phout_file: /var/loadtest/phout.log
+
+  address: www.google.com:80
+  load_profile:
+    load_type: rps
+    schedule: const(5, 1m)
+  header_http: "1.1"
+  ammofile: /var/loadtest/ammo
+  ammo_type: uri
+
+telegraf:
+  enabled: false
+console:
+  short_only: true
