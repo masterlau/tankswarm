@@ -514,5 +514,30 @@ app.get('/api/logs', (req,res) => {
 	});
 });
 
+//
+// Get Swarm Node Member Information
+//
+app.get('/api/nodes', (req,res) => {
+	console.log("nodes");
+
+	// Get Nodes Particpating in Swarm 
+	var url = "http://unix:/var/run/docker.sock:/v1.37/nodes";
+
+	request({
+		url: url,
+		method: 'GET',
+                headers: {
+                        host: 'localhost',
+                }
+	}, ( error, response, body ) => {
+		//console.log("Error: " + error);
+		//console.log("Response: " + response.statusCode);
+		//console.log("Body: " + body);
+		res.type('json');
+		res.send( body );
+	});
+
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
