@@ -20,6 +20,11 @@ var msgbody;
 var HH = 10;
 var MM = 0;
 
+
+// Swarm Nodes
+var nodeNums = 0;
+var tankNumsHTML = "";
+
 $( window ).ready(function() {
 
 	//
@@ -32,6 +37,31 @@ $( window ).ready(function() {
 	// RUN FUNCTION - Start Grafana Update
 	//
 	grafanaStatusUpdate = setInterval(grafanaUpdate, 5000);
+
+	//
+	// UI EVENT: GET NODES PARTICIPATING IN SWARM
+	//
+	$.get( "/api/nodes" )
+       	.done(function( data ) {
+       		console.log( data );
+		for( var i=0; i<data.length; i++ ) {
+			var hostname = data[i].Description.Hostname;
+			var state = data[i].Status.State;
+			console.log( "Hostmame: " + hostname + " State: " + state );
+			if( state == "ready" ) {
+				nodeNums++;
+				tankNumsHTML += "<option value=" + nodeNums + ">" + nodeNums + "</option>\n";
+			}
+		}
+		if ( tankNumsHTML == "" )  {
+			alert('No Nodes Ready in Swarm');
+			return;
+		} else {
+			tankNumsHTML = "<select id=''>\n" + tankNumsHTML + "</select>";
+			$('#tankNumHTMLDiv').html(tankNumsHTML);
+		}
+
+	});
 
 	//
 	// UI EVENT: SELECT CHANGE RAMP RAMP
