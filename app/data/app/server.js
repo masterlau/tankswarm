@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.get('/api/login', (req, res) => {
 
 	var timestamp = new Date().getTime();
-	console.log( timestamp + " /api/login');
+	console.log( timestamp + " /api/login");
 
 	var username = req.query.username;
 	var password = req.query.password;
@@ -44,7 +44,7 @@ app.get('/api/login', (req, res) => {
 app.get('/api/dashboard', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/dashboard');
+        console.log( timestamp + " /api/dashboard");
 
 	if( req.cookies && req.cookies.token == 'df4344c94ade99572ac25e5107a3f7a8') {
 		var dashboard = fs.readFileSync('./dashboard.html');
@@ -62,7 +62,7 @@ app.get('/api/dashboard', (req,res) => {
 app.get('/api/testfire', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/testfire');
+        console.log( timestamp + " /api/testfire");
 
         var reqtype = req.query.reqtype;
         var ssl = req.query.ssl;
@@ -114,7 +114,7 @@ app.get('/api/testfire', (req,res) => {
 app.get('/api/livefire', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/livefire');
+        console.log( timestamp + " /api/livefire");
 
 	// ERROR CHECK: Check Paramaters Arrived
 	var reqtype = req.query.reqtype;
@@ -288,7 +288,7 @@ app.get('/api/livefire', (req,res) => {
 app.get('/api/ceasefire', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/ceasefire');
+        console.log( timestamp + " /api/ceasefire");
 
         // Check if Tank Already Running
         var url  = "http://unix:/var/run/docker.sock:/v1.24/services/tank";
@@ -347,7 +347,7 @@ app.get('/api/ceasefire', (req,res) => {
 app.get('/api/fire', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/fire');
+        console.log( timestamp + " /api/fire");
 
 	// Check if Tank Already Running
 	var url  = "http://unix:/var/run/docker.sock:/v1.24/services/tank";
@@ -422,7 +422,7 @@ app.get('/api/fire', (req,res) => {
 app.get('/api/reset', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/reset);
+        console.log( timestamp + " /api/reset");
 
         // Check if Tank Already Running
         var url  = "http://unix:/var/run/docker.sock:/v1.24/services/tank";
@@ -452,7 +452,7 @@ app.get('/api/reset', (req,res) => {
 app.get('/api/svcstatus', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/svcstatus');
+        console.log( timestamp + " /api/svcstatus");
 
         var url = "http://unix:/var/run/docker.sock:/v1.24/tasks";
         request({
@@ -477,7 +477,7 @@ app.get('/api/svcstatus', (req,res) => {
 app.get('/api/logs', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/logs');
+        console.log( timestamp + " /api/logs");
 
 	// Get Logs 
 	var url = "http://unix:/var/run/docker.sock:/v1.24/services/tank/logs?follow=true&stdout=true";
@@ -534,7 +534,7 @@ app.get('/api/logs', (req,res) => {
 app.get('/api/nodes', (req,res) => {
 
         var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/nodes');
+        console.log( timestamp + " /api/nodes");
 
 	// Get Nodes Particpating in Swarm 
 	var url = "http://unix:/var/run/docker.sock:/v1.37/nodes";
