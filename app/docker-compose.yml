@@ -3,7 +3,7 @@ version: "3"
 services:
 
   nginx:
-    image: petertwliu/nginx:v7
+    image: petertwliu/nginx:v8
     ports:
       - 80:80
     networks:
