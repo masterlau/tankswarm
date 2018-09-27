@@ -8,6 +8,9 @@ services:
       - warzone
     volumes:
       - tank-vol:/var/loadtest/
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     deploy:
       mode: global
       restart_policy:

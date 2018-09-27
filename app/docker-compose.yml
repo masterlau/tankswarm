@@ -11,6 +11,9 @@ services:
     volumes:
       - app-vol:/usr/share/nginx/html
       - /var/run/docker.sock:/var/run/docker.sock
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     deploy:
       restart_policy:
         condition: any
@@ -30,6 +33,9 @@ services:
       - 5601:5601
       - 9200:9200
       - 9300:9300
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     deploy:
       restart_policy:
         condition: any
@@ -46,6 +52,9 @@ services:
       - warzone
     ports:
       - 3000:3000
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     deploy:
       restart_policy:
         condition: any
