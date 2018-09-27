@@ -205,7 +205,7 @@ app.get('/api/livefire', (req,res) => {
 	loadyml += "  enabled: false\n";
 	loadyml += "console:\n";
 	loadyml += "  short_only: true\n";
-	console.log("load.yml\n" + loadyml);
+	//console.log("load.yml\n" + loadyml);
 		
 	// FILE: write Tank YAML file contents to Load.yml
         fs.writeFile('/www/conf/load.yml', loadyml,  function(err) {
@@ -261,7 +261,7 @@ app.get('/api/livefire', (req,res) => {
                         };
 
 			// API CALL => Docker: Docker Create Service
-			console.log('API Call => Docker /service/create'); 
+			//console.log('API Call => Docker /service/create'); 
 			var url  = "http://unix:/var/run/docker.sock:/v1.24/services/create";
 
         		request({
@@ -272,9 +272,9 @@ app.get('/api/livefire', (req,res) => {
                 		},
                			body: JSON.stringify(msgbody),
 			}, (error, response, body) => {
-                		console.log( "Response: " + response.statusCode );
-                		console.log( "Error: " + error );
-                		console.log( "Body: " + body );
+                		//console.log( "Response: " + response.statusCode );
+                		//console.log( "Error: " + error );
+                		//console.log( "Body: " + body );
                 		res.type('json');
                 		res.send(body);
 			});
@@ -324,9 +324,9 @@ app.get('/api/ceasefire', (req,res) => {
                        			host: "localhost",
                 		},
         		}, (error, response, body) => {
-                		console.log( "Response: " + response.statusCode );
-                		console.log( "Error: " + error );
-                		console.log( "Body: " + body );
+                		//console.log( "Response: " + response.statusCode );
+                		//console.log( "Error: " + error );
+                		//console.log( "Body: " + body );
 
 				// Error Stopping  Service 
 				if( response.statusCode != 200 ) {
@@ -377,7 +377,13 @@ app.get('/api/fire', (req,res) => {
 							"Source": "tank-vol",
 							"Target": "/var/loadtest",
 							"Type": "volume"
-						}]
+						}],
+						"DNSConfig": {
+							"Nameservers": [
+								"8.8.8.8",
+								"8.8.4.4"
+							]
+						}
                         		},
                         		"RestartPolicy": {
                                 		"Condition": "none"
@@ -411,7 +417,7 @@ app.get('/api/fire', (req,res) => {
        			 });
 
                 } else {
-                        console.log('Tank is running');
+                        //console.log('Tank is running');
 			res.type('json');
 			res.send('{"error":"Tank is already running"}');
                 }
