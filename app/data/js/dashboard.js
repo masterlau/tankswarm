@@ -57,7 +57,7 @@ $( window ).ready(function() {
 			alert('No Nodes Ready in Swarm');
 			return;
 		} else {
-			tankNumsHTML = "<select id=''>\n" + tankNumsHTML + "</select>";
+			tankNumsHTML = "<select id='tanknum'>\n" + tankNumsHTML + "</select>";
 			$('#tankNumHTMLDiv').html(tankNumsHTML);
 		}
 
