@@ -47,7 +47,7 @@ app.get('/api/dashboard', (req,res) => {
         console.log( timestamp + " /api/dashboard");
 
 	if( req.cookies && req.cookies.token == 'df4344c94ade99572ac25e5107a3f7a8') {
-		var dashboard = fs.readFileSync('./dashboard.html');
+		var dashboard = fs.readFileSync('/www/app/dashboard.html');
 		res.type('html');
 		res.send(dashboard.toString());
 	} else {
@@ -167,7 +167,7 @@ app.get('/api/livefire', (req,res) => {
 	console.log("Ammo\n" + ammo);
 
       	// FILE: Write ammo string to ammo file
-        fs.writeFile('../conf/ammo', ammo,  function(err) {
+        fs.writeFile('/www/conf/ammo', ammo,  function(err) {
        		// Check file opened without issue
 	      	if (err) {
 	     		return console.error("Could Not Write to Ammmo File => " + err);
@@ -208,7 +208,7 @@ app.get('/api/livefire', (req,res) => {
 	console.log("load.yml\n" + loadyml);
 		
 	// FILE: write Tank YAML file contents to Load.yml
-        fs.writeFile('../conf/load.yml', loadyml,  function(err) {
+        fs.writeFile('/www/conf/load.yml', loadyml,  function(err) {
 
         	// Check file opened without issue
         	if (err) {
