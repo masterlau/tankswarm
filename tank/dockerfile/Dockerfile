@@ -7,12 +7,13 @@ FROM ubuntu:${VERSION} AS ubuntu
 RUN apt-get update
 
 # Install Tools
+#RUN apt-get -y install apt-utils
 RUN apt-get -y install vim
 RUN apt-get -y install curl
 RUN apt-get -y install wget
 
 # Update Essential Repos
-RUN apt-get -y install python-pip build-essential python-dev libffi-dev gfortran libssl-dev
+RUN apt-get -y install python-pip build-essential python-dev libffi-dev gfortran libssl-dev 
 
 # Install Yandex Tank
 RUN pip install https://api.github.com/repos/yandex/yandex-tank/tarball/master
@@ -43,6 +44,15 @@ COPY ./tankmapping.json /etc/logstash/
 # Add & Populate Tank Directory
 RUN mkdir -p /var/loadtest
 COPY ./start.sh /var/loadtest
+
+# Add NGINX
+RUN apt-get -y install nginx
+COPY ./nginx-selfsigned.key /etc/ssl/private/
+COPY ./nginx-selfsigned.crt /etc/ssl/certs/
+RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+COPY ./self-signed.conf /etc/nginx/snippets/
+COPY ./ssl-params.conf /etc/nginx/snippets/
+COPY ./default /etc/nginx/sites-enabled/
 
 # Add Entrypoint
 ENTRYPOINT /var/loadtest/start.sh

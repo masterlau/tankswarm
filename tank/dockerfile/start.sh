@@ -1,3 +1,6 @@
+#Start NGINX
+service nginx start
+
 # Start Logstash
 /usr/bin/nohup /usr/share/logstash/bin/logstash --path.settings /etc/logstash/ &
 

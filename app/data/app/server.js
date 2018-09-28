@@ -177,9 +177,10 @@ app.get('/api/livefire', (req,res) => {
 	// DATA: Prepare Tank YAML file contents
 	var loadyml = "";
 	loadyml += "phantom:\n";
+	//loadyml += "  writelog: all\n";
 	loadyml += "  phout_file: /var/loadtest/phout.log\n\n";
-	loadyml += "  address: " + hostname + ":" + portnum + "\n";
-	if( reqtype == "https" ) {
+	loadyml += "  address: localhost:" + portnum + "\n";
+	if( ssl == "https" ) {
 		loadyml += "  ssl: true\n";
 	} 
 	loadyml += "  load_profile:\n";
