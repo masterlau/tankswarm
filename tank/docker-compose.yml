@@ -3,7 +3,7 @@ version: "3"
 services:
 
   tank:
-    image: petertwliu/tankswarm:v8
+    image: petertwliu/tankswarm:v9
     networks:
       - warzone
     volumes:
