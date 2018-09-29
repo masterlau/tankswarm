@@ -179,10 +179,13 @@ app.get('/api/livefire', (req,res) => {
 	loadyml += "phantom:\n";
 	//loadyml += "  writelog: all\n";
 	loadyml += "  phout_file: /var/loadtest/phout.log\n\n";
-	loadyml += "  address: localhost:" + portnum + "\n";
 	if( ssl == "https" ) {
+		loadyml += "  address: localhost:" + portnum + "\n";
 		loadyml += "  ssl: true\n";
-	} 
+	} else {
+		loadyml += "  address: " + hostname + ":" + portnum + "\n";
+	}
+
 	loadyml += "  load_profile:\n";
 	loadyml += "    load_type: rps\n";
 	if( ramp == "const" ) {
@@ -239,7 +242,7 @@ app.get('/api/livefire', (req,res) => {
                                 "Name": "tank",
                                 "TaskTemplate": {
                                         "ContainerSpec": {
-                                                "Image": "petertwliu/tankswarm:v8",
+                                                "Image": "petertwliu/tankswarm:v10",
                                                 "Mounts":[{
                                                         "ReadOnly": false,
                                                         "Source": "tank-vol",
@@ -372,7 +375,7 @@ app.get('/api/fire', (req,res) => {
                 		"Name": "tank",
                 		"TaskTemplate": {
                         		"ContainerSpec": {
-                                		"Image": "petertwliu/tankswarm:v8",
+                                		"Image": "petertwliu/tankswarm:v10",
                                 		"Mounts":[{
 							"ReadOnly": false,
 							"Source": "tank-vol",

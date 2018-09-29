@@ -43,7 +43,7 @@ COPY ./tankmapping.json /etc/logstash/
 
 # Add & Populate Tank Directory
 RUN mkdir -p /var/loadtest
-COPY ./start.sh /var/loadtest
+COPY ./start.sh /root/
 
 # Add NGINX
 RUN apt-get -y install nginx
@@ -55,6 +55,6 @@ COPY ./ssl-params.conf /etc/nginx/snippets/
 COPY ./default /etc/nginx/sites-enabled/
 
 # Add Entrypoint
-ENTRYPOINT /var/loadtest/start.sh
+ENTRYPOINT /root/start.sh
 
 STOPSIGNAL SIGTERM
