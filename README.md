@@ -221,4 +221,6 @@ On the Docker Swarm Manager Node.
 | lhs3g5zfvlnf | app_grafana | replicated	| 1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
 | i0ac4jtl6h00 | app_nginx | replicated	| 1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
 
+
+Full Credits to those who blazed the trail before me: @direvius
   
