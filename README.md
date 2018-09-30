@@ -129,7 +129,7 @@ This process is carried out on the Docker Manager.
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
 
-1. Goto the TankSwarm App in your web browser - http://<docker-master-ip-address>/
+1. Goto the TankSwarm App in your web browser - http://< docker-master-ip-address >/
 2. Login with the following credentials, then click "Log Me In" Button
 
     > username: admin<br/>
