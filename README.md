@@ -21,21 +21,10 @@ Performance testing can be somewhat difficult, especially when targeting public 
 
 ![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png)
 
-### Tools & Features
-  - Nginx Web App - Easy, Single User Tank Loading, Firing & Results Analysis
-  - Docker Swarm - Scalable & Robust Contair Platform
-  - Phantom - Fast Web Client
-  - Yandex Tank - Accurate Load Scheduler
-  - Elastic Search - Elastic, Redundant Data Storage & Retrieval
-  - Grafana - Beautiful & Immediate Results Analysis
-
-### Architecture
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
 
   1. **App**: Consists of 3 docker containers - NGINX, Elastic Search and Grafana.  This service stack controls the browser based load testing console, the  Elastic Search Time Series database to collect test data and Grafana dashboards to chart test results.
   2. **Tank**: Consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.
-
-![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture.png)
 
 # Setup & Configuration
 ### Install Docker
