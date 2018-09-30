@@ -65,38 +65,42 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > ssh -i keylocation/keyname.pem ubuntu@yourpublicip
 
 ## Docker Setup
-1. Update Apt Repos & Auto-Upraade<br/>
-   apt update && apt -y upgrade
+1. Update Apt Repos & Auto-Upraade
+   > apt update && apt -y upgrade
 
 2. Install all Tank Depencies<br/>
-   apt-get install apt-transport-https ca-certificates curl software-properties-common git
+   > apt-get install apt-transport-https ca-certificates curl software-properties-common git
 
-4. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+4. Download and add GPG key
+   > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-5. add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+5. Add Tank Repo
+   > add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-6. apt-get update
+6. Update Repo
+   > apt-get update
 
-7. apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
+7. Install Docker CE
+   > apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
 
 8. Initialise Docker Swarm on Docker Manager Instance
-   docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1) 
+   > docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1) 
    
 9. Join Docker Swarm on Docker Workers Instances
-   docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377   
+   > docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377   
    *eg. docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx 10.0.0.1:2377)*
    
 10. Check all nodes joined
-    docker node ls
+    > docker node ls
     
 11. Create Docker Volume for Application Stack
-    docker volume create app-vol
+    > docker volume create app-vol
     
 12. Create Docker Volume for Tank Stack 
-    docker volume create tank-vol
+    > docker volume create tank-vol
     
 13. Create Docker Swarm Overlay Network 
-    docker network create --scope swarm --driver overlay warzone
+    > docker network create --scope swarm --driver overlay warzone
 
 ## Deploy App Stack
  
