@@ -31,13 +31,15 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ## Add AWS Compute Instances
 ## Docker Setup
 ### Docker Manager
-***Initiate Swarm & Become Manager**
+***Initiate Swarm & Become Manager***
 ***Deploy App Stack***
 ***Start Micro-Services***
 #### Docker Workers
 ***Join Swarm***
 
 # Usage
+![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg)
+![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg)
 
 
 
