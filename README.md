@@ -14,10 +14,10 @@ Performance testing can be somewhat difficult, especially when targeting public 
 - All data is collected, indexed, queried and presented immediately, so you can see the destruction as it happens.
 
 # The Tech
-- Built with ***Yandex Tank*** and Phantom load generator - Russian industrial strength performance tools.   
-- Made even more awesome with ***Docker Swarm***, enabling the orchestration and synchronous attack by a distributed Armada of Tank nodes..
-- Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with ***NodeJS micro-services on NGINX***.
-- Data is collected and aggregated by ***Elastic Search*** and presented on with custom built ***Grafana*** charts.
+- Built with **Yandex Tank** and **Phantom** load generator - Russian industrial strength performance tools.   
+- Made even more awesome with **Docker Swarm**, enabling the orchestration and synchronous attack by a distributed Armada of Tank nodes..
+- Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with **NodeJS micro-services on NGINX**.
+- Data is collected and aggregated by **Elastic Search** and presented on with custom built **Grafana** charts.
 
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png" alt="Architecture" width="80%">
 
