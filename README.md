@@ -50,20 +50,19 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 7. Skip through Add Tags
 
-8. Click through to "Configure Security Groups"
-
-9. Create New Security Group, add the following
+8. Click through to "Configure Security Groups" and create new Security Group, add the following:
    - SSH -> Port 22 -> TCP -> <YOUR-IP-ADDRESS>/32
    - HTTP -> Port 88 -> TCP -> <YOUR-IP-ADDRESS>/32
-- DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
-- DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
-- DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
-- GRAFANA -> Port 3000 -> TCP -> <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
-- ELASTIC -> Port 9200 -> TCP -> 10.0.0.0/24
-- KIBANA -> Port 5601 -> TCP ->  <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
-- FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
-10. Create New Key Pair
-11. ssh -i keylocation/keyname.pem ubuntu@yourpublicip
+   - DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
+   - DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
+   - DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
+   - GRAFANA -> Port 3000 -> TCP -> <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+   - ELASTIC -> Port 9200 -> TCP -> 10.0.0.0/24
+   - KIBANA -> Port 5601 -> TCP ->  <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+   - FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
+
+9. Create New Key Pair
+    > ssh -i keylocation/keyname.pem ubuntu@yourpublicip
 
 ## Docker Setup
 1. Update Apt Repos & Auto-Upraade<br/>
