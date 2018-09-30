@@ -40,6 +40,19 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
 
+1. Goto the TankSwarm App in your web browser - http://<docker-master-ip-address>/
+2. Login with the following credentials
+
+    > username: admin<br/>
+    > password: admin
+   
+3. Fill in the following fields.
+
+    > GET/POST: GET<br/>
+    > SSL/HTTP: http<br/>
+    > Host: www.google.com<br/>
+    > URL: /<br/>
+    > RPS: 20  *Requests per second*<br/>
 
 ### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
@@ -137,22 +150,4 @@ On the Docker Swarm Manager Node.
 | lhs3g5zfvlnf | app_grafana | replicated	| 1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
 | i0ac4jtl6h00 | app_nginx | replicated	| 1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
 
-
-# Usage
-### Start Web App
-1. Goto your favorite web browser and go to the following address
-
-    > ```http://<ip-of-docker-swarm-manager>```
-    
-2. Login with the following credentials
-
-    > username: admin<br/>
-    > password: admin
-   
-3. Fill in the following fields.
-
-    > GET/POST: GET<br/>
-    > SSL/HTTP: http<br/>
-    > Host: www.google.com<br/>
-    > URL: /<br/>
-    > RPS: 20  *Requests per second*<br/>
+  
