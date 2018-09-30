@@ -28,14 +28,72 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 # Setup & Configuration
 ## Create Amazon Web Services (AWS) Virtual Prvate Cloud
+1. Create VPC (eg. Tank)
+2. Create SubNet (eg. TankSubNet 10.0.0.0/24)
+3. Create New Internet Gateway
+4. Attach Internet Gateway to VPC
+5. Go Route Table, Select VPC, Goto Routes Tab, Add Route 0.0.0.0/24 -> New Internet Gateway & Save
+
 ## Add AWS Compute Instances
+1. Launch a new instance
+**Note**: ensure all EC2 instances are at least T2.Medium (>4GB RAM) - Docker 2GB + ELK 2GB
+2. Select Ubuntu 16.04 LTS Xenial and click "Next: Configure Instance Details"
+3. Input number of Instances (eg. 2)
+4. Select Tank SubNet
+5. Select Auto-Assign IP Addresses
+6. Skip through Add Storage
+7. Skip through Add Tags
+8. Click through to "Configure Security Groups"
+9. Create New Security Group, add the following
+- SSH -> Port 22 -> TCP -> <YOUR-IP-ADDRESS>/32
+- HTTP -> Port 88 -> TCP -> <YOUR-IP-ADDRESS>/32
+- DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
+- DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
+- DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
+- GRAFANA -> Port 3000 -> TCP -> <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+- ELASTIC -> Port 9200 -> TCP -> 10.0.0.0/24
+- KIBANA -> Port 5601 -> TCP ->  <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+- FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
+10. Create New Key Pair
+11. ssh -i keylocation/keyname.pem ubuntu@yourpublicip
+
 ## Docker Setup
-### Docker Manager
-**Initiate Swarm & Become Manager**
-**Deploy App Stack**
-**Start Micro-Services**
-#### Docker Workers
-**Join Swarm**
+1. apt update
+
+2. apt -y upgrade
+
+3. apt-get install apt-transport-https ca-certificates curl software-properties-common git
+
+4. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+5. add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+6. apt-get update
+
+7. apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
+
+8. Initialise Docker Swarm on Docker Manager Instance
+   docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1) 
+   
+9. Join Docker Swarm on Docker Workers Instances
+   docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377   
+   *eg. docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx 10.0.0.1:2377)*
+   
+10. Check all nodes joined
+    docker node ls
+    
+11. Create Docker Volume for Application Stack
+    docker volume create app-vol
+    
+12. Create Docker Volume for Tank Stack 
+    docker volume create tank-vol
+    
+13. Create Docker Swarm Overlay Network 
+    docker network create --scope swarm --driver overlay warzone
+
+## Deploy App Stack
+ 
+2. Start Micro-Services**
 
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
@@ -47,18 +105,17 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > password: admin
    
 3. Fill out Phase 1 input fields to Prepare Ammo, then click "Test Fire" button.
-
-    > GET/POST: GET<br/>
-    > SSL/HTTP: http<br/>
-    > Host: www.google.com<br/>
-    > URL: /<br/>
-    > HTTP Headers:
     
 4. Review Test Fire Results in the Terminal Console window to ensure expectant results.
 
 5. Fill out Phase 2 Tank Setting input fields, then click "Tank Ready - Fire!" button.
 
-6. View the results in the "Battle Field Intelligence" Grafana charts. **Note**: You can also click on the "Laucnh Grafana for Full Metrics" link to see expanded metrics and have full control.
+6. View the results in the "Battle Field Intelligence" Grafana charts. 
+**Note**: You can also click on the "Laucnh Grafana for Full Metrics" link to see expanded metrics and have full control.
+
+
+
+
 
 ### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
