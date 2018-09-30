@@ -19,7 +19,7 @@ Performance testing can be somewhat difficult, especially when targeting public 
 - Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with ***NodeJS micro-services on NGINX***.
 - Data is collected and aggregated by ***Elastic Search*** and presented on with custom built ***Grafana*** charts.
 
-![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png)
+![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png width=80%)
 
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
 
@@ -38,8 +38,8 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ***Join Swarm***
 
 # Usage
-![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg)
-![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg)
+![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg | width=150)
+![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg | width=150)
 
 
 
