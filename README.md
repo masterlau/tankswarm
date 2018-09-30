@@ -51,14 +51,14 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 7. Skip through Add Tags
 
 8. Click through to "Configure Security Groups" and create new Security Group, add the following:
-   - SSH -> Port 22 -> TCP -> <YOUR-IP-ADDRESS>/32
-   - HTTP -> Port 88 -> TCP -> <YOUR-IP-ADDRESS>/32
+   - SSH -> Port 22 -> TCP -> < YOUR-IP-ADDRESS >/32
+   - HTTP -> Port 88 -> TCP -> < YOUR-IP-ADDRESS >/32
    - DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
    - DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
    - DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
-   - GRAFANA -> Port 3000 -> TCP -> <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+   - GRAFANA -> Port 3000 -> TCP -> < YOUR-IP-ADDRESS >/32, 10.0.0.0/24
    - ELASTIC -> Port 9200 -> TCP -> 10.0.0.0/24
-   - KIBANA -> Port 5601 -> TCP ->  <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
+   - KIBANA -> Port 5601 -> TCP -> < YOUR-IP-ADDRESS >/32, 10.0.0.0/24
    - FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
 
 9. Create New Key Pair & Download Key
@@ -67,7 +67,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > ssh -i keylocation/keyname.pem ubuntu@< ec2-instance-public-ip >
 
 ## Docker Setup
-1. Update Apt Repos & Auto-Upraade
+1. Update Apt Repos & Auto-Uprade
    > apt update && apt -y upgrade
 
 2. Install all Tank Depencies<br/>
@@ -104,7 +104,7 @@ This process is carried out on the Docker Manager.
 1. Clone the TanksSwarm GIT Repository 
    > git clone https://github.com/masterlau/tankswarm.git
 
-2. Copyn all App  code to the App Docker Volume (app-vol)
+2. Copy App code base to the App Docker Volume (app-vol)
    > cp -R app/data/* /var/lib/docker/volumes/app-vol/_data/
 
 3. Increase the kernel maximum memory allocataion size for the greedy Elastic Search Java memory pool.
@@ -143,106 +143,6 @@ This process is carried out on the Docker Manager.
 
 6. View the results in the "Battle Field Intelligence" Grafana charts. 
 **Note**: You can also click on the "Laucnh Grafana for Full Metrics" link to see expanded metrics and have full control.
-
-
-
-
-
-### Install Docker
-1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
-    - Docker-Swarm-Manager
-    - Docker-Swarm-Worker1
-    - Docker-Swarm-Worker2
-    - Docker-Swarm-Worker3
-2. **Network**: Ensure your nodes are on the same subnet
-3. **Ports**: Open the following ports:
-    - TCP port 2377 for cluster management communications
-    - TCP and UDP port 7946 for communication among nodes
-    - UDP port 4789 for overlay network traffic
-4. **Operating System**: Ubuntu Xenial (16.04)
-5. **Install Docker (CE) to Nodes** [Docker Website](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-
-    - Update Ubuntu
-    > $ sudo apt-get update
-    
-    - Install dependant packages
-    > $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-
-    - Get Docker GPG Key
-    > $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-    - Add Docker Repo
-    > $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
-    - Re-Update Repo List
-    > $ sudo apt-get update
-
-    - Install Docker 
-    > $ sudo apt-get install docker-ce
-    
-### Configure Docker Swarm
-
-1. **Initiliase Docker Swarm Manager**
-On the node inteneded to be the Docker Swarm Manager, run the docker initialization command.
-
-    > $ docker swarm init --advertise-addr 192.168.0.1<br/>
-    > Swarm initialized: current node (bvz81updecsj6wjz393c09vti) is now a manager<br/><br/>
-    > To add a worker to this swarm, run the following command:<br/><br/>
-    > $ docker swarm join \ <br/>
-    > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
-    > 172.17.0.2:2377<br/><br/>
-    >To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
-
-2. **Join Docker Worker Nodes to Swarm**
-Login to each of the Docker Swarm Worker Nodes and run the following command to join them to the Swarm.
-
-    > $ docker swarm join \ <br/>
-    > --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx \ <br/>
-    > 172.17.0.2:2377<br/>
-
-3. **List Registered Docker Swarm Nodes**
-On the Docker Swarm Manager, run this command to ensure all nodes joined the Swarm correctly:
-
-    > $ docker node ls
- 
-    | ID | HOSTNAME | STATUS | AVAILABILITY | MANAGER | STATUS |
-    | -- | -------- | ------ | ------------ | ------- | ------ |
-    | 1bcef6utixb0l0ca7gxuivsj0 | Docker-Swarm-Worker-1 | Ready | Active | | |
-    | 38ciaotwjuritcdtn9npbnkuz | Docker-Swarm-Worker-2 | Ready | Active | | |
-    | 4sdag234kjhvishj29hajsnjn | Docker-Swarm-Worker-3 | Ready | Active | | |
-    | e216jshn25ckzbvmwlnh5jr3g* | Docker-Swarm-Manager  | Ready | Active | Leader | |
-
-### Create Docker Named Volumes
-On the Docker Swarm Manager, create a Docker named file repoistory.
-
-    > $ docker volume create app-vol      
-    > $ docker volume create tank-vol
-
-### Create Docker Overlay Network
-On the Docker Swarm Manager, create a docker overlay network so all nodes can communicate.
-
-    > $ docker network create warzone
-
-### Deploy the App ServicesStack
-On the Docker Swarm Manager Node.
-
-1. Clone the TANKSWARM Repo to your home directory.
-
-    > $ git clone https://github.com/masterlau/tankswarm.git
-
-2. Switch into the repo directory and deploy App Stack.
-
-    > $ docker deploy stack -c docker-compose-app.yml app
-
-3. Check the App Stack is running:
-
-    > $ docker service ls
-    
-| ID | NAME | MODE | REPLICAS | IMAGE | PORTS |
-| -- | ---- | ---- | -------- | ----- | ----- |
-| j71rvblg8e5s | app_elk | replicated	| 1/1 | sebp/elk:latest | \*:5044->5044/tcp, \*:5601->5601/tcp, \*:9200->9200/tcp, \*:9300->9300/tcp | 
-| lhs3g5zfvlnf | app_grafana | replicated	| 1/1 | grafana/grafana:latest | \*:3000->3000/tcp |
-| i0ac4jtl6h00 | app_nginx | replicated	| 1/1 | nginx:latest | \*:80->80/tcp, \*:443->443/tcp |
 
 
 Full Credits to those who blazed the trail before me: @direvius
