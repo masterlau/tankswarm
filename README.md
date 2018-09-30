@@ -38,10 +38,8 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ***Join Swarm***
 
 # Usage
-![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg | width=150)
-![Ammo](https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg | width=150)
-
-
+<img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%">
+<img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%">
 
 
 ### Install Docker
