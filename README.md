@@ -37,16 +37,24 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ## Add AWS Compute Instances
 1. Launch a new instance<br/>
 **Note**: ensure all EC2 instances are at least T2.Medium (>4GB RAM) - Docker 2GB + ELK 2GB
+
 2. Select Ubuntu 16.04 LTS Xenial and click "Next: Configure Instance Details"
+
 3. Input number of Instances (eg. 2)
+
 4. Select Tank SubNet
+
 5. Select Auto-Assign IP Addresses
+
 6. Skip through Add Storage
+
 7. Skip through Add Tags
+
 8. Click through to "Configure Security Groups"
+
 9. Create New Security Group, add the following
-- SSH -> Port 22 -> TCP -> <YOUR-IP-ADDRESS>/32
-- HTTP -> Port 88 -> TCP -> <YOUR-IP-ADDRESS>/32
+   - SSH -> Port 22 -> TCP -> <YOUR-IP-ADDRESS>/32
+   - HTTP -> Port 88 -> TCP -> <YOUR-IP-ADDRESS>/32
 - DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
 - DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
 - DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
@@ -58,11 +66,11 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 11. ssh -i keylocation/keyname.pem ubuntu@yourpublicip
 
 ## Docker Setup
-1. apt update
+1. Update Apt Repos & Auto-Upraade<br/>
+   apt update && apt -y upgrade
 
-2. apt -y upgrade
-
-3. apt-get install apt-transport-https ca-certificates curl software-properties-common git
+2. Install all Tank Depencies<br/>
+   apt-get install apt-transport-https ca-certificates curl software-properties-common git
 
 4. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
