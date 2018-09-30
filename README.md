@@ -46,7 +46,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > username: admin<br/>
     > password: admin
    
-3. Fill out Phase 1 input fields.
+3. Fill out Phase 1 input fields to Prepare Ammo, then click "Test Fire" button.
 
     > GET/POST: GET<br/>
     > SSL/HTTP: http<br/>
@@ -54,7 +54,11 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > URL: /<br/>
     > HTTP Headers:
     
-4. Click 
+4. Review Test Fire Results in the Terminal Console window to ensure expectant results.
+
+5. Fill out Phase 2 Tank Setting input fields, then click "Tank Ready - Fire!" button.
+
+6. View the results in the "Battle Field Intelligence" Grafana charts. **Note**: You can also click on the "Laucnh Grafana for Full Metrics" link to see expanded metrics and have full control.
 
 ### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
