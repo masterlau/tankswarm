@@ -31,28 +31,30 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ## Add AWS Compute Instances
 ## Docker Setup
 ### Docker Manager
-***Initiate Swarm & Become Manager***
-***Deploy App Stack***
-***Start Micro-Services***
+**Initiate Swarm & Become Manager**
+**Deploy App Stack**
+**Start Micro-Services**
 #### Docker Workers
-***Join Swarm***
+**Join Swarm**
 
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
 
 1. Goto the TankSwarm App in your web browser - http://<docker-master-ip-address>/
-2. Login with the following credentials
+2. Login with the following credentials, then click "Log Me In" Button
 
     > username: admin<br/>
     > password: admin
    
-3. Fill in the following fields.
+3. Fill out Phase 1 input fields.
 
     > GET/POST: GET<br/>
     > SSL/HTTP: http<br/>
     > Host: www.google.com<br/>
     > URL: /<br/>
-    > RPS: 20  *Requests per second*<br/>
+    > HTTP Headers:
+    
+4. Click 
 
 ### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
