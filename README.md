@@ -61,7 +61,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    - KIBANA -> Port 5601 -> TCP ->  <YOUR-IP-ADDRESS>/32, 10.0.0.0/24
    - FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
 
-9. Create New Key Pair
+9. Create New Key Pair & Download Key
 
 10. SSH to each ec2 instance and to assure connectivity
     > ssh -i keylocation/keyname.pem ubuntu@< ec2-instance-public-ip >
@@ -73,39 +73,58 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 2. Install all Tank Depencies<br/>
    > apt-get install apt-transport-https ca-certificates curl software-properties-common git
 
-4. Download and add GPG key
+3. Download and add GPG key
    > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-5. Add Tank Repo
+4. Add Tank Repo
    > add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-6. Update Repo
-   > apt-get update
+5. Update Repo & Install Docker CE
+   > apt-get update && apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
 
-7. Install Docker CE
-   > apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
-
-8. Initialise Docker Swarm on Docker Manager Instance
+6. Initialise Docker Swarm on Docker Manager Instance
    > docker swarm init --advertise-addr < docker-swarm-ip > (eg. 10.0.0.1) 
    
-9. Join Docker Swarm on Docker Workers Instances
+7. On Docker Workers, Join Docker Swarm 
    > docker swarm join --token < docker-swarm-token > < docker-swarm-manager-ip >:2377   
    
-10. Check all nodes joined
+8. On Docker Manager, check all Docker Nodes are joined
     > docker node ls
     
-11. Create Docker Volume for Application Stack
+9. On Docker Manager, Create Docker Volume for Application Stack & Tank Stack
     > docker volume create app-vol
-    
-12. Create Docker Volume for Tank Stack 
     > docker volume create tank-vol
     
-13. Create Docker Swarm Overlay Network 
+10. On Docker Manager, Create Docker Swarm Overlay Network 
     > docker network create --scope swarm --driver overlay warzone
 
 ## Deploy App Stack
- 
-2. Start Micro-Services**
+This process is carried out on the Docker Manager.
+
+1. Clone the TanksSwarm GIT Repository 
+   > git clone https://github.com/masterlau/tankswarm.git
+
+2. Copyn all App  code to the App Docker Volume (app-vol)
+   > cp -R app/data/* /var/lib/docker/volumes/app-vol/_data/
+
+3. Increase the kernel maximum memory allocataion size for the greedy Elastic Search Java memory pool.
+   > sysctl -w vm.max_map_count=262144
+
+4. Deploy the Docker App Stack
+   > docker stack deploy -c app/docker-compose.yml app
+
+5. Ensure the services are running
+   > docker service ls
+
+6. Start the NodeJS micro-services engine
+   > docker exec < NGINX-DOCKER-CONTAINER_ID > /www/app/start.sh
+
+7. Check web app is operational in your favorite web browser
+   > Chrome Browser: http://<docker-swarm-manager-ip> (e.g http://54.206.90.28)
+
+**Note**: You can keep an eye on the NodeJS logs:
+   > docker exec <NGINX-DOCKER-CONTAINER-ID> /usr/bin/tail -f /var/log/nodejs.log
+
 
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
