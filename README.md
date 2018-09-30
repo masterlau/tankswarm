@@ -1,6 +1,14 @@
 ### You just found..
 # TANKSWARM
-TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services and Apps.
+TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services, right from your mobile.
+
+# The Problem
+Performance testing can be somewhat difficult, espeically when targeting public cloud environments.  Some of the biggest issues include:
+- It's easy to max out test host resources - such as network/memory/disk I/O or CPU cycles.
+- Using a single static IP for large concurrency testing usually kicks off Distributed Denial of Service (DDOS) alarms and subsquently throttles, packet shapes or completely blocks your connection.
+- Collecting, aggregating and evaluating performance data is cumbersome.
+
+# The Solution
 
 ### Tools & Features
   - Nginx Web App - Easy, Single User Tank Loading, Firing & Results Analysis
