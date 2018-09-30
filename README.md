@@ -3,12 +3,23 @@
 TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services, right from your mobile.
 
 # The Problem
-Performance testing can be somewhat difficult, espeically when targeting public cloud environments.  Some of the biggest issues include:
+Performance testing can be somewhat difficult, especially when targeting public cloud environments...
 - It's easy to max out test host resources - such as network/memory/disk I/O or CPU cycles.
 - Using a single static IP for large concurrency testing usually kicks off Distributed Denial of Service (DDOS) alarms and subsquently throttles, packet shapes or completely blocks your connection.
 - Collecting, aggregating and evaluating performance data is cumbersome.
 
-# The Solution
+# The Solution.. TankSwarm
+- An massively scalable, performant solution with the ability to harness mastodon resources
+- Use as many IP addresses as you want to beat DDOS, sticky caches and proxies for real world
+- All data is collected, indexed, queried and presented immediately, so you can see the destruction as it happens.
+
+# The Tech
+- Built with ***Yandex Tank*** and Phantom load generator - Russian industrial strength performance tools.   
+- Made even more awesome with ***Docker Swarm***, enabling the orchestration and synchronous attack by a distributed Armada of Tank nodes..
+- Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with ***NodeJS micro-services on NGINX***.
+- Data is collected and aggregated by ***Elastic Search*** and presented on with custom built ***Grafana*** charts.
+
+![Architecture](https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png)
 
 ### Tools & Features
   - Nginx Web App - Easy, Single User Tank Loading, Firing & Results Analysis
