@@ -42,9 +42,9 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 3. Input number of Instances (eg. 2)
 
-4. Select Tank SubNet
+4. Check Tank SubNet
 
-5. Select Auto-Assign IP Addresses
+5. Check Auto-Assign IP Addresses
 
 6. Skip through Add Storage
 
@@ -62,7 +62,9 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    - FILEBEAT -> Port 5044 -> TCP -> 10.0.0.0/24
 
 9. Create New Key Pair
-    > ssh -i keylocation/keyname.pem ubuntu@yourpublicip
+
+10. SSH to each ec2 instance and to assure connectivity
+    > ssh -i keylocation/keyname.pem ubuntu@< ec2-instance-public-ip >
 
 ## Docker Setup
 1. Update Apt Repos & Auto-Upraade
@@ -84,11 +86,10 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    > apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
 
 8. Initialise Docker Swarm on Docker Manager Instance
-   > docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1) 
+   > docker swarm init --advertise-addr < docker-swarm-ip > (eg. 10.0.0.1) 
    
 9. Join Docker Swarm on Docker Workers Instances
-   > docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377   
-   *eg. docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx 10.0.0.1:2377)*
+   > docker swarm join --token < docker-swarm-token > < docker-swarm-manager-ip >:2377   
    
 10. Check all nodes joined
     > docker node ls
