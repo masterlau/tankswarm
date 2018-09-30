@@ -120,7 +120,7 @@ This process is carried out on the Docker Manager.
    > docker exec < NGINX-DOCKER-CONTAINER_ID > /www/app/start.sh
 
 7. Check web app is operational in your favorite web browser
-   > Chrome Browser: http://<docker-swarm-manager-ip> (e.g http://54.206.90.28)
+   > http://<docker-swarm-manager-ip>
 
 **Note**: You can keep an eye on the NodeJS logs:
    > docker exec <NGINX-DOCKER-CONTAINER-ID> /usr/bin/tail -f /var/log/nodejs.log
