@@ -35,7 +35,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 5. Go Route Table, Select VPC, Goto Routes Tab, Add Route 0.0.0.0/24 -> New Internet Gateway & Save
 
 ## Add AWS Compute Instances
-1. Launch a new instance
+1. Launch a new instance<br/>
 **Note**: ensure all EC2 instances are at least T2.Medium (>4GB RAM) - Docker 2GB + ELK 2GB
 2. Select Ubuntu 16.04 LTS Xenial and click "Next: Configure Instance Details"
 3. Input number of Instances (eg. 2)
