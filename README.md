@@ -27,6 +27,21 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
   2. **Tank**: Consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.
 
 # Setup & Configuration
+## Create Amazon Web Services (AWS) Virtual Prvate Cloud
+## Add AWS Compute Instances
+## Docker Setup
+### Docker Manager
+***Initiate Swarm & Become Manager**
+***Deploy App Stack***
+***Start Micro-Services***
+#### Docker Workers
+***Join Swarm***
+
+# Usage
+
+
+
+
 ### Install Docker
 1. **Compute Instances**: You can use VM's or Bare Metal Machines to create your Docker Swarm.  I have used four (4) small AWS EC2 Instances.
     - Docker-Swarm-Manager
