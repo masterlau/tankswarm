@@ -83,7 +83,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    > add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 5. Update Repo & Install Docker CE
-   > apt-get update && apt-get install -y docker-ce=18.03.1~ce-0~ubuntu
+   > apt-get update && apt-get install -y docker-ce=```18.03.1~ce-0~ubuntu```
 
 6. Initialise Docker Swarm on Docker Manager Instance
    > docker swarm init --advertise-addr < docker-swarm-ip > (eg. 10.0.0.1) 
