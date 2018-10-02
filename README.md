@@ -1,6 +1,6 @@
 ### You just found..
 
-<img src="https://github.com/masterlau/tankswarm/blob/master/docs/tankswarm-logo.jpg" alt="tankswarm" width="80%">
+<img src="https://github.com/masterlau/tankswarm/blob/master/docs/tankswarm-logo.jpg" alt="tankswarm" width="100%">
 
 # TANKSWARM
 TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services, right from your mobile.
