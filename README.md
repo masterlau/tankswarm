@@ -95,7 +95,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
     > docker node ls
     
 9. On Docker Manager, Create Docker Volume for Application Stack & Tank Stack
-    > docker volume create app-vol
+    > docker volume create app-vol<br/>
     > docker volume create tank-vol
     
 10. On Docker Manager, Create Docker Swarm Overlay Network 
