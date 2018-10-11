@@ -12,30 +12,32 @@ Performance testing can be somewhat difficult, especially when targeting public 
 - Collecting, aggregating and evaluating performance data is cumbersome.
 
 # The Solution.. TankSwarm
-- An massively scalable, performant solution with the ability to harness mastodon resources
-- Use as many IP addresses as you want to beat DDOS, sticky caches and proxies for real world
+- A massively scalable, performant solution with the ability to harness enormous public cloud resources
+- Use as many IP addresses as you want to beat DDOS, sticky caches and proxies for realistic testing
 - All data is collected, indexed, queried and presented immediately, so you can see the destruction as it happens.
 
 # The Tech
 - Built with **Yandex Tank** and **Phantom** load generator - Russian industrial strength performance tools.   
-- Made even more awesome with **Docker Swarm**, enabling the orchestration and synchronous attack by a distributed Armada of Tank nodes..
+- Made even more awesome with **Docker Swarm**, enabling the orchestration and asynchronous attack by a distributed Armada of Tank nodes.
 - Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with **NodeJS micro-services on NGINX**.
-- Data is collected and aggregated by **Elastic Search** and presented on with custom built **Grafana** charts.
+- Data is collected and aggregated by **Elastic Search** and presented with **Grafana** charts.
 
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png" alt="Architecture" width="80%">
 
 TANKSWARM consists of two Docker Service Stacks that are replicated over a Docker Swarm:
 
   1. **App**: Consists of 3 docker containers - NGINX, Elastic Search and Grafana.  This service stack controls the browser based load testing console, the  Elastic Search Time Series database to collect test data and Grafana dashboards to chart test results.
-  2. **Tank**: Consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushges results into Elastic search via Logstash and Metric Beat.
+  2. **Tank**: Consists of one docker container consisting of Yandex Tank, Logstash and Metric Beat.  This service stack executes the load tests, pushes results into Elastic search via Logstash and Metric Beat.
 
 # Setup & Configuration
-## Create Amazon Web Services (AWS) Virtual Prvate Cloud
+## Create Amazon Web Services (AWS) Virtual Private Cloud
 1. Create VPC (eg. Tank)
 2. Create SubNet (eg. TankSubNet 10.0.0.0/24)
 3. Create New Internet Gateway
 4. Attach Internet Gateway to VPC
-5. Go Route Table, Select VPC, Goto Routes Tab, Add Route 0.0.0.0/24 -> New Internet Gateway & Save
+5. Click Route Table and select your VPC
+6. Click the Routes Tab
+7. Add Route 0.0.0.0/24 -> New Internet Gateway 
 
 ## Add AWS Compute Instances
 1. Launch a new instance<br/>

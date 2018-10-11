@@ -584,6 +584,7 @@ function grafanaUpdate() {
 
 //
 // EXPOSES DOCKER SERVICE LOGS FOR TANK STACK
+// Currently a bug in Docker API service log end-point
 //
 function logging( command ) {
 

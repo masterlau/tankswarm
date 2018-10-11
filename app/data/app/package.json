@@ -69,6 +69,7 @@
       "resolved": "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz",
       "version": "0.4.0"
     },
+    "aws-sdk": "^2.326.0",
     "aws-sign2": {
       "integrity": "sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=",
       "resolved": "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz",

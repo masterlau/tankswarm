@@ -287,7 +287,7 @@ app.get('/api/livefire', (req,res) => {
 });
 
 //
-// Cease Fire
+// Cease Fire - Stop 
 //
 app.get('/api/ceasefire', (req,res) => {
 
@@ -307,7 +307,6 @@ app.get('/api/ceasefire', (req,res) => {
                 console.log( "Body: " + body );
                 var json = JSON.parse(body);
 
-		
 		// Tank Service Not Running - Respond & Exit
 		if( json.message != "service tank not found" ) {
                         res.type('json');
@@ -347,88 +346,9 @@ app.get('/api/ceasefire', (req,res) => {
 	});
 });
 
-// FIRE!!!!!
-app.get('/api/fire', (req,res) => {
-
-        var timestamp = new Date().getTime();
-        console.log( timestamp + " /api/fire");
-
-	// Check if Tank Already Running
-	var url  = "http://unix:/var/run/docker.sock:/v1.24/services/tank";
-
-        request({
-                url: url,
-                method: 'GET',
-                headers: {
-                        host: "localhost",
-                },
-        }, (error, response, body) => {
-                //console.log( "Body: " + body );
-                var json = JSON.parse(body);
-                if( json.message == "service tank not found" ) {
-
-			// Create Service
-			var tanknum = req.query.tanknum;
-        		var replicas = parseInt(tanknum, 10);
-
-        		var msgbody = {
-                		"Name": "tank",
-                		"TaskTemplate": {
-                        		"ContainerSpec": {
-                                		"Image": "petertwliu/tankswarm:v10",
-                                		"Mounts":[{
-							"ReadOnly": false,
-							"Source": "tank-vol",
-							"Target": "/var/loadtest",
-							"Type": "volume"
-						}],
-						"DNSConfig": {
-							"Nameservers": [
-								"8.8.8.8",
-								"8.8.4.4"
-							]
-						}
-                        		},
-                        		"RestartPolicy": {
-                                		"Condition": "none"
-                        		}
-                		},
-                		"Mode": {
-                        		"Replicated": {
-                        		        "Replicas": replicas
-                        		}
-                		},
-               			"Networks": [{
-                        		"Target": "warzone"
-                		}]
-			};
-
-        		var url  = "http://unix:/var/run/docker.sock:/v1.24/services/create";
-
-		        request({
-        		        url: url,
-        		        method: 'POST',
-        		        headers: {
-        		                host: "localhost",
-        		        },
-                		body: JSON.stringify(msgbody),
-        		}, (error, response, body) => {
-        		        //console.log( "Response: " + response.statusCode );
-        		        //console.log( "Error: " + error );
-        		        //console.log( "Body: " + body );
-        		        res.type('json');
-                		res.send(body);
-       			 });
-
-                } else {
-                        //console.log('Tank is running');
-			res.type('json');
-			res.send('{"error":"Tank is already running"}');
-                }
-        });
-
-});
-
+//
+// Terminate Tank Service Swarm
+//
 app.get('/api/reset', (req,res) => {
 
         var timestamp = new Date().getTime();
@@ -483,6 +403,7 @@ app.get('/api/svcstatus', (req,res) => {
 
 //
 // DEPRECATED: Get Logs
+// Known bug in Docker API service logs API
 //
 app.get('/api/logs', (req,res) => {
 
