@@ -88,10 +88,10 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    ```$ apt-get update && apt-get install -y docker-ce=18.03.1~ce-0~ubuntu```
 
 6. Initialise Docker Swarm on Docker Manager Instance<br/>
-   ```$ docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1)``` 
+   ```$ docker swarm init --advertise-addr <DOCKER-SWARM-MANAGER-IP> (eg. 10.0.0.1)``` 
    
 7. On Docker Workers, Join Docker Swarm<br/>
-   ```$ docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377```
+   ```$ docker swarm join --token <DOCKER-SWARM-TOKEN> <DOCKER-SWARM-MANAGER-IP>:2377```
    
 8. On Docker Manager, check all Docker Nodes are joined<br/>
    ```$ docker node ls```
@@ -106,39 +106,38 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 ## Deploy App Stack
 This process is carried out on the Docker Manager.
 
-1. Clone the TanksSwarm GIT Repository 
-   > git clone https://github.com/masterlau/tankswarm.git
+1. Clone the TanksSwarm GIT Repository<br/>
+   ```$ git clone https://github.com/masterlau/tankswarm.git```
 
-2. Copy App code base to the App Docker Volume (app-vol)
-   > cp -R app/data/* /var/lib/docker/volumes/app-vol/_data/
+2. Copy App code base to the App Docker Volume (app-vol)<br/>
+   ```$ cp -R app/data/* /var/lib/docker/volumes/app-vol/_data/```
 
-3. Increase the kernel maximum memory allocataion size for the greedy Elastic Search Java memory pool.
-   > sysctl -w vm.max_map_count=262144
+3. Increase the kernel maximum memory allocataion size for the greedy Elastic Search Java memory pool.<br/>
+   ```$ sysctl -w vm.max_map_count=262144```
 
-4. Deploy the Docker App Stack
-   > docker stack deploy -c app/docker-compose.yml app
+4. Deploy the Docker App Stack<br/>
+   ```$ docker stack deploy -c app/docker-compose.yml app```
 
-5. Ensure the services are running
-   > docker service ls
+5. Ensure the services are running<br/>
+   ```$ docker service ls```
 
-6. Start the NodeJS micro-services engine
-   > docker exec < NGINX-DOCKER-CONTAINER_ID > /www/app/start.sh
+6. Start the NodeJS micro-services engine<br/>
+   ```$ docker exec <NGINX-DOCKER-CONTAINER_ID> /www/app/start.sh```
 
-7. Check web app is operational in your favorite web browser
-   > http://< docker-swarm-manager-ip >
+7. Check web app is operational in your favorite web browser<br/>
+   ```$ http://<DOCKER-SWARM-MANAGER-IP>```
 
-**Note**: You can keep an eye on the NodeJS logs:
-   > docker exec <NGINX-DOCKER-CONTAINER-ID> /usr/bin/tail -f /var/log/nodejs.log
+**Note**: You can keep an eye on the NodeJS logs:<br/>
+   ```$ docker exec <NGINX-DOCKER-CONTAINER-ID> /usr/bin/tail -f /var/log/nodejs.log```
 
 
 # Usage
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-login.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-ammo.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-tank.jpg" width="25%"><img src="https://github.com/masterlau/tankswarm/blob/master/docs/iphone-results.jpg" width="25%">
 
-1. Goto the TankSwarm App in your web browser - http://< docker-master-ip-address >/
-2. Login with the following credentials, then click "Log Me In" Button
-
-    > username: admin<br/>
-    > password: admin
+1. Goto the TankSwarm App in your web browser - ```http://<DOCKER-SWARM-MANAGER-IP>```
+2. Login with the following credentials, then click "Log Me In" Button<br/>
+   > username: admin<br/>
+   > password: admin
    
 3. Fill out Phase 1 input fields to Prepare Ammo, then click "Test Fire" button.
     
