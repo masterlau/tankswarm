@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+
+  tank:
+    image: petertwliu/tankswarm:v9
+    networks:
+      - warzone
+    volumes:
+      - tank-vol:/var/loadtest/
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    deploy:
+      mode: global
+      restart_policy:
+        condition: none
+
+volumes:
+  tank-vol:
+    external:
+      name: tank-vol
+
+networks:
+  warzone:
+    external:
+      name: warzone

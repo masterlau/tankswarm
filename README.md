@@ -57,7 +57,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 8. Click through to "Configure Security Groups" and create new Security Group, add the following:
    - SSH -> Port 22 -> TCP -> < YOUR-IP-ADDRESS >/32
-   - HTTP -> Port 88 -> TCP -> < YOUR-IP-ADDRESS >/32
+   - HTTP -> Port 80 -> TCP -> < YOUR-IP-ADDRESS >/32
    - DOCKERADM -> Port 2377 -> TCP -> 10.0.0.0/24
    - DOCKERCHAT -> Port 7946 -> TCP/UDP -> 10.0.0.0/24
    - DOCKERNET -> Port 4789 -> UDP -> 10.0.0.0/24
