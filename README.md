@@ -146,8 +146,10 @@ This process is carried out on the Docker Manager.
 5. Fill out Phase 2 Tank Setting input fields, then click "Tank Ready - Fire!" button.
 
 6. View the results in the "Battle Field Intelligence" Grafana charts. 
-**Note**: You can also click on the "Laucnh Grafana for Full Metrics" link to see expanded metrics and have full control.
+**Note**: You can also click on the "Launch Grafana for Full Metrics" link to see expanded metrics and have full control.
 
 
-Full Credits to those who blazed the trail before me: @direvius
+Full Credits to those who blazed the trail before me: Alexey Lavrenuke @direvius
+   > https://hub.docker.com/r/direvius/yandex-tank/
+   > https://github.com/direvius
   
