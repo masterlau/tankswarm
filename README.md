@@ -150,6 +150,6 @@ This process is carried out on the Docker Manager.
 
 
 Full Credits to those who blazed the trail before me: Alexey Lavrenuke @direvius
-   > https://hub.docker.com/r/direvius/yandex-tank/
+   > https://hub.docker.com/r/direvius/yandex-tank/<br/>
    > https://github.com/direvius
   
