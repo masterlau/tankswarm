@@ -149,9 +149,9 @@ This process is carried out on the Docker Manager.
 **Note**: You can also click on the "Launch Grafana for Full Metrics" link to see expanded metrics and have full control.
 
 
-Full Credits to those who blazed the trail before me: 
+Full Credits to those who blazed the trail before me:<br/><br/>
 Alexey Lavrenuke @direvius<br/>
    > https://hub.docker.com/r/direvius/yandex-tank/<br/>
-   > https://github.com/direvius
+   > https://github.com/direvius<br/><br/>
 Stanislaz Kozlov (The Architect)<br/>
    > https://github.com/mancubus77
