@@ -69,7 +69,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 9. Create New Key Pair & Download Key
 
 10. SSH to each ec2 instance and to assure connectivity
-    > ssh -i keylocation/keyname.pem ubuntu@< ec2-instance-public-ip >
+    ```$ ssh -i <keypath/keyname.pem> ubuntu@<ec2-instance-public-ip>```
 
 ## Docker Setup
 1. Update Apt Repos & Auto-Uprade
@@ -91,7 +91,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
    > docker swarm init --advertise-addr < docker-swarm-ip > (eg. 10.0.0.1) 
    
 7. On Docker Workers, Join Docker Swarm 
-   > docker swarm join --token < docker-swarm-token > < docker-swarm-manager-ip >:2377   
+   ```$ docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377```
    
 8. On Docker Manager, check all Docker Nodes are joined
     > docker node ls
