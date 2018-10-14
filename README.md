@@ -68,40 +68,40 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 
 9. Create New Key Pair & Download Key
 
-10. SSH to each ec2 instance and to assure connectivity
+10. SSH to each ec2 instance and to assure connectivity<br/>
     ```$ ssh -i <keypath/keyname.pem> ubuntu@<ec2-instance-public-ip>```
 
 ## Docker Setup
-1. Update Apt Repos & Auto-Uprade
-   > apt update && apt -y upgrade
+1. Update Apt Repos & Auto-Uprade<br/>
+   ```$ apt update && apt -y upgrade```
 
 2. Install all Tank Depencies<br/>
-   > apt-get install apt-transport-https ca-certificates curl software-properties-common git
+   ```$ apt-get install apt-transport-https ca-certificates curl software-properties-common git```
 
-3. Download and add GPG key
-   > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+3. Download and add GPG key<br/>
+   ```$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
 
-4. Add Tank Repo
-   > add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+4. Add Tank Repo<br/>
+   ```$ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"```
 
-5. Update Repo & Install Docker CE
-   > apt-get update && apt-get install -y docker-ce=```18.03.1~ce-0~ubuntu```
+5. Update Repo & Install Docker CE<br/>
+   ```$ apt-get update && apt-get install -y docker-ce=18.03.1~ce-0~ubuntu```
 
-6. Initialise Docker Swarm on Docker Manager Instance
-   > docker swarm init --advertise-addr < docker-swarm-ip > (eg. 10.0.0.1) 
+6. Initialise Docker Swarm on Docker Manager Instance<br/>
+   ```$ docker swarm init --advertise-addr <docker-swarm-ip> (eg. 10.0.0.1)``` 
    
-7. On Docker Workers, Join Docker Swarm 
+7. On Docker Workers, Join Docker Swarm<br/>
    ```$ docker swarm join --token <docker-swarm-token> <docker-swarm-manager-ip>:2377```
    
-8. On Docker Manager, check all Docker Nodes are joined
-    > docker node ls
+8. On Docker Manager, check all Docker Nodes are joined<br/>
+   ```$ docker node ls```
     
-9. On Docker Manager, Create Docker Volume for Application Stack & Tank Stack
-    > docker volume create app-vol<br/>
-    > docker volume create tank-vol
+9. On Docker Manager, Create Docker Volume for Application Stack & Tank Stack<br/>
+    ```$ docker volume create app-vol```<br/>
+    ```$ docker volume create tank-vol```
     
-10. On Docker Manager, Create Docker Swarm Overlay Network 
-    > docker network create --scope swarm --driver overlay warzone
+10. On Docker Manager, Create Docker Swarm Overlay Network<br/>
+    ```$ docker network create --scope swarm --driver overlay warzone```
 
 ## Deploy App Stack
 This process is carried out on the Docker Manager.
