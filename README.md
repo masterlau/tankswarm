@@ -5,22 +5,22 @@
 # TANKSWARM
 TANKSWARM is a complete platform for conducting and analyzing load tests on Web Services, right from your mobile.
 
-# The Problem
+# The Challenge
 Performance testing can be somewhat difficult, especially when targeting public cloud environments...
 - It's easy to max out test host resources - such as network/memory/disk I/O or CPU cycles.
 - Using a single static IP for large concurrency testing usually kicks off Distributed Denial of Service (DDOS) alarms and subsquently throttles, packet shapes or completely blocks your connection.
 - Collecting, aggregating and evaluating performance data is cumbersome.
 
-# The Solution.. TankSwarm
-- A massively scalable, performant solution with the ability to harness enormous public cloud resources
-- Use as many IP addresses as you want to beat DDOS, sticky caches and proxies for realistic testing
-- All data is collected, indexed, queried and presented immediately, so you can see the destruction as it happens.
+# Our Solution.. TANKSWARM
+- A massively scalable, performant platform that enables you to harness enormous public cloud resources.
+- Beat DDOS, sticky caches and proxies with as many real IP's as necessary to emulate real world environments.
+- All data is collected, indexed, queried and presented as it happens, so you can see the destruction as it happens.
 
-# The Tech
+# The Tech Stack
 - Built with **Yandex Tank** and **Phantom** load generator - Russian industrial strength performance tools.   
 - Made even more awesome with **Docker Swarm**, enabling the orchestration and asynchronous attack by a distributed Armada of Tank nodes.
-- Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with **NodeJS micro-services on NGINX**.
-- Data is collected and aggregated by **Elastic Search** and presented with **Grafana** charts.
+- Design and launch your attack anywhere, anytime from your mobile via a responsive **Web GUI** built with **NodeJS on NGINX**.
+- Data is collected and aggregated by **Elastic Search** and presented via **Grafana** charts.
 
 <img src="https://github.com/masterlau/tankswarm/blob/master/docs/architecture-simple.png" alt="Architecture" width="80%">
 
