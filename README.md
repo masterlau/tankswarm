@@ -69,7 +69,7 @@ TANKSWARM consists of two Docker Service Stacks that are replicated over a Docke
 9. Create New Key Pair & Download Key
 
 10. SSH to each ec2 instance and to assure connectivity<br/>
-    ```$ ssh -i <keypath/keyname.pem> ubuntu@<ec2-instance-public-ip>```
+    ```$ ssh -i <keypath/keyname.pem> ubuntu@<EC2-PUBLIC-IP>```
 
 ## Docker Setup
 1. Update Apt Repos & Auto-Uprade<br/>
