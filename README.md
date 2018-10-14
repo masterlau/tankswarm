@@ -145,7 +145,7 @@ This process is carried out on the Docker Manager.
 
 5. Fill out Phase 2 Tank Setting input fields, then click "Tank Ready - Fire!" button.
 
-6. View the results in the "Battle Field Intelligence" Grafana charts. 
+6. View the results in the "Battle Field Intelligence" Grafana charts.<br/>
 **Note**: You can also click on the "Launch Grafana for Full Metrics" link to see expanded metrics and have full control.
 
 
