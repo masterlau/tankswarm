@@ -110,19 +110,19 @@ This process is carried out on the Docker Manager.
    ```$ git clone https://github.com/masterlau/tankswarm.git```
 
 2. Copy App code base to the App Docker Volume (app-vol)<br/>
-   ```$ cp -R app/data/* /var/lib/docker/volumes/app-vol/_data/```
+   ```$ cp -R tankswarm/* /var/lib/docker/volumes/app-vol/_data/```
 
 3. Increase the kernel maximum memory allocataion size for the greedy Elastic Search Java memory pool.<br/>
    ```$ sysctl -w vm.max_map_count=262144```
 
 4. Deploy the Docker App Stack<br/>
-   ```$ docker stack deploy -c app/docker-compose.yml app```
+   ```$ docker stack deploy -c tankswarm/docker/app/docker-compose.yml app```
 
 5. Ensure the services are running<br/>
    ```$ docker service ls```
 
 6. Start the NodeJS micro-services engine<br/>
-   ```$ docker exec <NGINX-DOCKER-CONTAINER_ID> /www/app/start.sh```
+   ```$ docker exec <NGINX-DOCKER-CONTAINER-ID> /www/app/start.sh```
 
 7. Check web app is operational in your favorite web browser<br/>
    ```$ http://<DOCKER-SWARM-MANAGER-IP>```
