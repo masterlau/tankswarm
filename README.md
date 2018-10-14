@@ -121,7 +121,7 @@ This process is carried out on the Docker Manager.
 5. Ensure the services are running<br/>
    ```$ docker service ls```
 
-6. Start the NodeJS micro-services engine<br/>
+6. Start the NodeJS Express service<br/>
    ```$ docker exec <NGINX-DOCKER-CONTAINER-ID> /www/app/start.sh```
 
 7. Check web app is operational in your favorite web browser<br/>
