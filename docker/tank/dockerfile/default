@@ -26,9 +26,13 @@ server {
 	include snippets/ssl-params.conf;
 
 	server_name _;
+	set $ppadd              $scheme://$http_x_target$uri$is_args$args;
+        underscores_in_headers  on;
 
-	location / {
-		proxy_pass	$scheme://$http_host$uri$is_args$args;
-	}
+        location / {
+                resolver                8.8.8.8;
+                proxy_set_header        Host $http_host;
+                proxy_pass              $ppadd;
+        }
 }
 

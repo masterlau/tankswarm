@@ -242,7 +242,7 @@ app.get('/api/livefire', (req,res) => {
                                 "Name": "tank",
                                 "TaskTemplate": {
                                         "ContainerSpec": {
-                                                "Image": "petertwliu/tankswarm:v10",
+                                                "Image": "petertwliu/tankswarm:v11",
                                                 "Mounts":[{
                                                         "ReadOnly": false,
                                                         "Source": "tank-vol",
