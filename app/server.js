@@ -179,13 +179,10 @@ app.get('/api/livefire', (req,res) => {
 	loadyml += "phantom:\n";
 	//loadyml += "  writelog: all\n";
 	loadyml += "  phout_file: /var/loadtest/phout.log\n\n";
-	if( ssl == "https" ) {
-		loadyml += "  address: localhost:" + portnum + "\n";
-		loadyml += "  ssl: true\n";
-	} else {
-		loadyml += "  address: " + hostname + ":" + portnum + "\n";
-	}
-
+        loadyml += "  address: localhost:" + portnum + "\n";
+        if( ssl == "https" ) {
+                loadyml += "  ssl: true\n";
+        }
 	loadyml += "  load_profile:\n";
 	loadyml += "    load_type: rps\n";
 	if( ramp == "const" ) {
